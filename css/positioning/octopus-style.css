@@ -1,29 +1,25 @@
 img {
   position: absolute;
-  width: 100%;
+  margin: auto;
   padding-top: 10px;
 }
 
 #octopus {
   margin-left: 550px;
   margin-top: 200px;
-  position: relative;
   z-index: -1;
 }
 
 #hat {
   left: 530px;
-  top: 100px;
+  top: 120px;
   down: 70px;
-  position: absolute;
 }
 
 #glasses {
-  position: relative;
-
-  right:180px;
-  down: 450px;
+  right: 300px;
+  left: 300px;
+  padding-top: 310px;
+  padding-right: 100px;
   z-index: 1;
-
-
 }
