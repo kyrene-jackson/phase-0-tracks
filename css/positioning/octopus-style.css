@@ -1,8 +1,8 @@
-*{
-  outline: 1px solid red;
+img {
+  position: absolute;
+  width: 100%;
+  padding-top: 10px;
 }
-
-
 
 #octopus {
   margin-left: 550px;
