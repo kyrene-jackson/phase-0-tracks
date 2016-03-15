@@ -1,0 +1,29 @@
+*{
+  outline: 1px solid red;
+}
+
+
+
+#octopus {
+  margin-left: 550px;
+  margin-top: 200px;
+  position: relative;
+  z-index: -1;
+}
+
+#hat {
+  left: 530px;
+  top: 100px;
+  down: 70px;
+  position: absolute;
+}
+
+#glasses {
+  position: relative;
+
+  right:180px;
+  down: 450px;
+  z-index: 1;
+
+
+}
