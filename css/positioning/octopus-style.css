@@ -1,0 +1,33 @@
+*{
+  outline: 1px solid red;
+}
+
+body {
+  height: 700px;
+}
+
+#octopus {
+  margin-left: 550px;
+  margin-top: 200px;
+  position: absolute;
+  z-index: -2;
+}
+
+#hat {
+  left: 530px;
+  top: 100px;
+  position: relative;
+  z-index: -1;
+
+
+}
+
+#glasses {
+  position: absolute;
+  left: 620px;
+  down: 500px;
+  z-index: 0;
+
+
+
+}
