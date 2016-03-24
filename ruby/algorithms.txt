@@ -1,0 +1,24 @@
+- Move so that you are facing the button pad located outside the elevator door.
+- If you are traveling "up" (to a higher floor):
+    - Push the button directly to the right of the symbol of an "up arrow" until it lights up.
+- Otherwise:
+    - Push the button directly to the right of the symbol of a "down arrow" until it lights up.
+- Wait for one of the elevator doors to open.
+- Once elevator doors open, wait and confirm the arrow displayed above the elevator matches     the arrow you selected.
+- If the arrow matches your selection:
+    - Proceed to board the elevator.
+- Otherwise:
+    - Wait for the next elevator.
+- For every time that you are on the elevator:
+    - Move until you are facing the panel of buttons.
+    - Locate the number of the floor you would like to move to on the panel.
+    - Push the button directly to the right of that number until it lights up.
+    - Release the button and move back 5 inches.
+    - Wait for the elevator doors to open.
+    - Confirm that the current floor number matches the number you selected.
+- If the numbers match:
+    -Navigate outside the elevator.
+    - *End*
+- Otherwise:
+    - Stay on the elevator.
+    - Repeat elevator steps.
