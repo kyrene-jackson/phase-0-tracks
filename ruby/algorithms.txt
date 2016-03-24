@@ -1,24 +1,30 @@
-- Move so that you are facing the button pad located outside the elevator door.
-- If you are traveling "up" (to a higher floor):
-    - Push the button directly to the right of the symbol of an "up arrow" until it lights up.
+4.2 Release 1: Find a Real-Life Algorithm
+Task: Making a cup of instant coffee!
+------------------------------------------
+
+- Fill the kettle 3/4 full of water from the kitchen sink.
+- Place the kettle on the gas stove.
+- Set the stove temperature to medium-high.
+- While the water is being heated:
+    - Proceed to the pantry located on the left side of the fridge.
+    - Get instant coffee mix off of the third shelf from the top.
+    - Navigate to the utensil drawer directly left of the stove.
+    - Grab 1 spoon.
+    - Open the cabinet directly above the drawer.
+    - Take out 1 medium sized mug.
+    - Place all items on the kitchen table.
+    - Measure one spoonful of coffee mix and drop it into the mug.
+- Check the water.
+- If the water is boiling:
+    - Turn off the stove.
+    - Let the kettle cool for 2 minutes.
 - Otherwise:
-    - Push the button directly to the right of the symbol of a "down arrow" until it lights up.
-- Wait for one of the elevator doors to open.
-- Once elevator doors open, wait and confirm the arrow displayed above the elevator matches     the arrow you selected.
-- If the arrow matches your selection:
-    - Proceed to board the elevator.
-- Otherwise:
-    - Wait for the next elevator.
-- For every time that you are on the elevator:
-    - Move until you are facing the panel of buttons.
-    - Locate the number of the floor you would like to move to on the panel.
-    - Push the button directly to the right of that number until it lights up.
-    - Release the button and move back 5 inches.
-    - Wait for the elevator doors to open.
-    - Confirm that the current floor number matches the number you selected.
-- If the numbers match:
-    -Navigate outside the elevator.
-    - *End*
-- Otherwise:
-    - Stay on the elevator.
-    - Repeat elevator steps.
+    - Lower the heat.
+    - Wait until water is just about to start boiling.
+    - Turn off the stove.
+- Pour hot water into the mug and stir the coffee.
+- Until you feel awake or until the hot coffee burns your tongue:
+    - Take a sip of coffee.
+- If you still do not feel awake:
+    - Grab a redbull.
+-End-
