@@ -2,7 +2,7 @@
 # Release 1 gather basic data
 #-------------------------------------------
 puts "What is your name?"
-name = gets.chomp
+name = gets.chomp.downcase
 puts "How old are you?"
 age = gets.chomp.to_i
 puts "What year were you born?"
@@ -14,7 +14,8 @@ health_ins = gets.chomp.downcase
 #-------------------------------------------
 # Release 2 detection logic
 #-------------------------------------------
-#if the employee got their age right AND is willing to eat garlic bread OR sign up for insurance => "Probably not a vampire"
+#scenario 1
+#If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, the result is “Probably not a vampire.”
 #-------------------------------------------
 
 
@@ -45,13 +46,32 @@ end
 
 #if the employee got their age right AND is willing to eat garlic bread OR sign up for insurance print "probably not a vampire"
 if age_verify && (will_eat_garlic_bread || wants_health_insurance)
-  puts "Probably not a vampire"
+  puts "Probably not a vampire."
 end
 
 #-------------------------------------------
-#if the employee got their age wrong AND hates garlic bread OR waives insurance => "probably a vampire"
+#scenario 2
+#If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
 #-------------------------------------------
 
 if age_verify != true && (will_eat_garlic_bread != true || wants_health_insurance != true)
   puts "Probably a vampire."
+end
+
+#-------------------------------------------
+#scenario 3
+#if the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is “Almost certainly a vampire.”
+#-------------------------------------------
+
+if age_verify != true && (will_eat_garlic_bread != true && wants_health_insurance != true)
+  puts "Almost certainly a vampire."
+end
+
+#-------------------------------------------
+#scenario 4
+#Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
+#-------------------------------------------
+
+if name == "drake cula" || name == "tu fang"
+  puts "Definitely a vampire"
 end
