@@ -1,3 +1,4 @@
+results_found = false
 #-------------------------------------------
 # Release 1 gather basic data
 #-------------------------------------------
@@ -47,6 +48,7 @@ end
 #if the employee got their age right AND is willing to eat garlic bread OR sign up for insurance print "probably not a vampire"
 if age_verify && (will_eat_garlic_bread || wants_health_insurance)
   puts "Probably not a vampire."
+  results_found = true
 end
 
 #-------------------------------------------
@@ -56,6 +58,7 @@ end
 
 if age_verify != true && (will_eat_garlic_bread != true || wants_health_insurance != true)
   puts "Probably a vampire."
+  results_found = true
 end
 
 #-------------------------------------------
@@ -65,6 +68,7 @@ end
 
 if age_verify != true && (will_eat_garlic_bread != true && wants_health_insurance != true)
   puts "Almost certainly a vampire."
+  results_found = true
 end
 
 #-------------------------------------------
@@ -74,4 +78,13 @@ end
 
 if name == "drake cula" || name == "tu fang"
   puts "Definitely a vampire"
+  results_found = true
+end
+
+#-------------------------------------------
+#scenario 5
+#Otherwise, print “Results inconclusive.”
+#-------------------------------------------
+if results_found = false
+  puts "Results inconclusive"
 end
