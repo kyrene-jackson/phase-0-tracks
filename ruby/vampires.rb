@@ -52,6 +52,6 @@ end
 #if the employee got their age wrong AND hates garlic bread OR waives insurance => "probably a vampire"
 #-------------------------------------------
 
-if age_verify = false && (will_eat_garlic_bread = false || wants_health_insurance = false)
+if age_verify != true && (will_eat_garlic_bread != true || wants_health_insurance != true)
   puts "Probably a vampire."
 end
