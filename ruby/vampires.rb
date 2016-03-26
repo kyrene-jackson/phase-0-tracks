@@ -1,4 +1,6 @@
+#-------------------------------------------
 # Release 1 gather basic data
+#-------------------------------------------
 puts "What is your name?"
 name = gets.chomp
 puts "How old are you?"
@@ -9,8 +11,12 @@ puts "Our company cafeteria serves garlic bread. Should we order some for you? (
 garlic_bread_pref = gets.chomp.downcase
 puts "Would you like to enroll in the company's health insurance? (yes or no)"
 health_ins = gets.chomp.downcase
+#-------------------------------------------
 # Release 2 detection logic
+#-------------------------------------------
 #if the employee got their age right AND is willing to eat garlic bread OR sign up for insurance => "Probably not a vampire"
+#-------------------------------------------
+
 
 #verify employee's age is mathematically correct
 age_verify = false
@@ -37,5 +43,13 @@ else
   wants_health_insurance = false
 end
 
-#if the employee got their age right AND is willing to eat garlic bread OR sign up for insurance
-if age_verify && will_eat_garlic_bread
+#if the employee got their age right AND is willing to eat garlic bread OR sign up for insurance print "probably not a vampire"
+if age_verify && (will_eat_garlic_bread || wants_health_insurance)
+  puts "Probably not a vampire"
+end
+
+#-------------------------------------------
+#if the employee got their age wrong AND hates garlic bread OR waives insurance => "probably a vampire"
+#-------------------------------------------
+
+#
