@@ -7,14 +7,8 @@ until employee_count == number_of_employees
 #---------------------------
 # Ask employee to list allergies one at a time, end loop when employee types 'done', go straight to result 2 if they type "sunshine"
 puts "Before we begin, please list any allergies you have one at a time. Type 'done' when you are finished"
-valid_answer = false
-until valid_answer
-  puts "Allergy:"
-  employee_response = gets.chomp.downcase
-if employee_response == "done"
-  valid_answer = true
-end
-end
+
+
 #---------------------------
 # Gather basic data
 #---------------------------
@@ -87,3 +81,5 @@ else
   puts "Survey Result: Results inconclusive."
 end
 end
+#Message before exit
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
