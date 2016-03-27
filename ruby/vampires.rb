@@ -25,3 +25,10 @@ calculated_age = 2016 - employee_birth_year
 if calculated_age == employee_age && (wants_garlic_bread == "yes" || wants_health_ins == "yes")
   puts "Probably not a vampire."
 end
+
+#---------------------------
+# Scenario 2
+# If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
+if calculated_age != employee_age && (wants_garlic_bread == "no" || wants_health_ins == "no")
+  puts "Probably not a vampire"
+end
