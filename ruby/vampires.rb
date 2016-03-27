@@ -63,7 +63,7 @@ end
 #---------------------------
 # Scenario 2
 # If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
-if (calculated_age != employee_age && calculated_age != 2016) &&   (wants_garlic_bread == "no" || wants_health_ins == "no")
+if (calculated_age != employee_age && calculated_age != 2016) && (wants_garlic_bread == "no" || wants_health_ins == "no")
   #puts "Probably a vampire"
   survey_result = "two"
 end
