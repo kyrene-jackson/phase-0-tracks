@@ -15,6 +15,8 @@ wants_health_ins = gets.chomp.downcase
 # Release 2
 # Detection logic
 #---------------------------
+
+#---------------------------
 # Scenario 1
 #If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, the result is “Probably not a vampire.”
 
@@ -23,14 +25,15 @@ wants_health_ins = gets.chomp.downcase
 calculated_age = 2016 - employee_birth_year
 # Set conditional statement
 if calculated_age == employee_age && (wants_garlic_bread == "yes" || wants_health_ins == "yes")
-  #puts "Probably not a vampire."
+  # puts "Probably not a vampire."
+  # Assign a survey result
   survey_result = "one"
 end
 
 #---------------------------
 # Scenario 2
 # If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
-if calculated_age != employee_age && (wants_garlic_bread == "no" || wants_health_ins == "no")
+if (calculated_age != employee_age && calculated_age != 2016) &&   (wants_garlic_bread == "no" || wants_health_ins == "no")
   #puts "Probably a vampire"
   survey_result = "two"
 end
@@ -39,7 +42,7 @@ end
 # Scenario 3
 # If the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is “Almost certainly a vampire.”
 
-if calculated_age != employee_age && (wants_garlic_bread == "no" && wants_health_ins == "no")
+if (calculated_age != employee_age && calculated_age != 2016) && (wants_garlic_bread == "no" && wants_health_ins == "no")
   #puts "Almost certainly a vampire"
   survey_result = "three"
 end
@@ -63,6 +66,8 @@ when "three"
   puts "Almost certainly a vampire."
 when "four"
   puts "Definitely a vampire."
+when "five"
+  puts "Results inconclusive."
 else
   puts "Results inconclusive."
 end
