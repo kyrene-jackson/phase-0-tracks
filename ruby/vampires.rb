@@ -1,4 +1,10 @@
-# Release 1
+# Ask how many employees are taking survey
+puts "Hello! How many employees will be processed?"
+number_of_employees = gets.chomp.to_i
+employee_count = 0
+until employee_count == number_of_employees
+  employee_count += 1
+
 # Gather basic data
 #---------------------------
 puts "What is your name?"
@@ -12,7 +18,7 @@ wants_garlic_bread = gets.chomp.downcase
 puts "Would you like to enroll in the company’s health insurance? (yes or no)"
 wants_health_ins = gets.chomp.downcase
 #---------------------------
-# Release 2
+
 # Detection logic
 #---------------------------
 
@@ -59,15 +65,17 @@ end
 
 case survey_result
 when "one"
-  puts "Probably not a vampire."
+  puts "Survey Result: Probably not a vampire."
 when "two"
-  puts "Probably a vampire."
+  puts "Survey Result: Probably a vampire."
 when "three"
-  puts "Almost certainly a vampire."
+  puts "Survey Result: Almost certainly a vampire."
 when "four"
-  puts "Definitely a vampire."
+  puts "Survey Result: Definitely a vampire."
 when "five"
-  puts "Results inconclusive."
+  puts "Survey Result: Results inconclusive."
 else
-  puts "Results inconclusive."
+  puts "Survey Result: Results inconclusive."
+end
+
 end
