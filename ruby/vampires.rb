@@ -7,7 +7,26 @@ until employee_count == number_of_employees
 #---------------------------
 # Ask employee to list allergies one at a time, end loop when employee types 'done', go straight to result 2 if they type "sunshine"
 puts "Before we begin, please list any allergies you have one at a time. Type 'done' when you are finished"
+valid_response = false
+$employee_allergy = nil
+until valid_response
+  puts "allergies:"
+  $employee_allergy = gets.chomp
+if $employee_allergy == "done"
+  valid_response
+elsif $employee_allergy == "sunshine"
+  $employee_allergy = "sunshine"
+break if $employee_allergy == "sunshine"
+end
+end
 
+auto_result = false
+if $employee_allergy == "sunshine"
+  auto_result = true
+  puts "Survey result: Probably a vampire"
+end
+
+break if auto_result = true
 
 #---------------------------
 # Gather basic data
