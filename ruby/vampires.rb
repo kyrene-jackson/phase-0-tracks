@@ -4,7 +4,18 @@ number_of_employees = gets.chomp.to_i
 employee_count = 0
 until employee_count == number_of_employees
   employee_count += 1
-
+#---------------------------
+# Ask employee to list allergies one at a time, end loop when employee types 'done', go straight to result 2 if they type "sunshine"
+puts "Before we begin, please list any allergies you have one at a time. Type 'done' when you are finished"
+valid_answer = false
+until valid_answer
+  puts "Allergy:"
+  employee_response = gets.chomp.downcase
+if employee_response == "done"
+  valid_answer = true
+end
+end
+#---------------------------
 # Gather basic data
 #---------------------------
 puts "What is your name?"
@@ -18,11 +29,9 @@ wants_garlic_bread = gets.chomp.downcase
 puts "Would you like to enroll in the company’s health insurance? (yes or no)"
 wants_health_ins = gets.chomp.downcase
 #---------------------------
-
 # Detection logic
 #---------------------------
 
-#---------------------------
 # Scenario 1
 #If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, the result is “Probably not a vampire.”
 
@@ -77,5 +86,4 @@ when "five"
 else
   puts "Survey Result: Results inconclusive."
 end
-
 end
