@@ -1,4 +1,3 @@
-results_found = false
 #-------------------------------------------
 # Release 1 gather basic data
 #-------------------------------------------
@@ -21,34 +20,31 @@ health_ins = gets.chomp.downcase
 
 
 #verify employee's age is mathematically correct
-age_verify = false
-calculated_year_born = (2016 - age)
-if calculated_year_born == year_born
-  age_verify = true
+calculated_age = (2016 - year_born)
+if calculated_age == age
+  age_verify = "pass"
 else
-  age_verify = false
+  age_verify = "fail"
 end
 
 #check if employee is willing to eat garlic bread
-will_eat_garlic_bread = false
+
 if garlic_bread_pref == "yes"
-  will_eat_garlic_bread = true
-else
-  will_eat_garlic_bread = false
+  will_eat_garlic_bread = "pass"
+elsif garlic_bread_pref == "no"
+  will_eat_garlic_bread = "fail"
 end
 
 #check if employee wants to sign up for health insurance
-wants_health_insurance = false
 if health_ins == "yes"
-  wants_health_insurance = true
-else
-  wants_health_insurance = false
+  wants_health_insurance = "pass"
+elsif health_ins == "no"
+  wants_health_insurance = "fail"
 end
 
 #if the employee got their age right AND is willing to eat garlic bread OR sign up for insurance print "probably not a vampire"
-if age_verify && (will_eat_garlic_bread || wants_health_insurance)
+if age_verify = "pass" && (will_eat_garlic_bread = "pass" || wants_health_insurance = "pass")
   puts "Probably not a vampire."
-  results_found = true
 end
 
 #-------------------------------------------
@@ -56,9 +52,8 @@ end
 #If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
 #-------------------------------------------
 
-if age_verify != true && (will_eat_garlic_bread != true || wants_health_insurance != true)
+if age_verify = "fail" && (will_eat_garlic_bread = "fail" || wants_health_insurance = "fail")
   puts "Probably a vampire."
-  results_found = true
 end
 
 #-------------------------------------------
@@ -66,9 +61,8 @@ end
 #if the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is “Almost certainly a vampire.”
 #-------------------------------------------
 
-if age_verify != true && (will_eat_garlic_bread != true && wants_health_insurance != true)
+if age_verify != "pass" && (will_eat_garlic_bread = "fail" && wants_health_insurance = "fail")
   puts "Almost certainly a vampire."
-  results_found = true
 end
 
 #-------------------------------------------
@@ -78,13 +72,6 @@ end
 
 if name == "drake cula" || name == "tu fang"
   puts "Definitely a vampire"
-  results_found = true
 end
 
 #-------------------------------------------
-#scenario 5
-#Otherwise, print “Results inconclusive.”
-#-------------------------------------------
-if results_found = false
-  puts "Results inconclusive"
-end
