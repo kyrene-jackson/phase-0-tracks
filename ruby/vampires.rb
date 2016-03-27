@@ -5,7 +5,7 @@ employee_count = 0
 until employee_count == number_of_employees
   employee_count += 1
 #---------------------------
-# Ask employee to list allergies one at a time, end loop when employee types 'done', go straight to result 2 if they type "sunshine"
+# Ask employee to list allergies one at a time, end loop when employee types 'done'
 puts "Before we begin, please list any allergies you have one at a time. Type 'done' when you are finished"
 valid_response = false
 $employee_allergy = nil
@@ -16,17 +16,19 @@ if $employee_allergy == "done"
   valid_response
 elsif $employee_allergy == "sunshine"
   $employee_allergy = "sunshine"
+end
+break if $employee_allergy == "done"
 break if $employee_allergy == "sunshine"
 end
-end
 
+# Go straight to result 2 if they type "sunshine"
 auto_result = false
 if $employee_allergy == "sunshine"
   auto_result = true
   puts "Survey result: Probably a vampire"
 end
 
-break if auto_result = true
+break if auto_result
 
 #---------------------------
 # Gather basic data
@@ -100,5 +102,6 @@ else
   puts "Survey Result: Results inconclusive."
 end
 end
+
 #Message before exit
 puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
