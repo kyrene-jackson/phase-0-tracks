@@ -1,4 +1,4 @@
-# Ask how many employees are taking survey
+# Ask how many employees are taking survey [LOOP 1]
 puts "Hello! How many employees will be processed?"
 number_of_employees = gets.chomp.to_i
 employee_count = 0
@@ -9,6 +9,7 @@ until employee_count == number_of_employees
 puts "Before we begin, please list any allergies you have one at a time. Type 'done' when you are finished"
 valid_response = false
 $employee_allergy = nil
+#[LOOP 2]
 until valid_response
   puts "allergies:"
   $employee_allergy = gets.chomp
