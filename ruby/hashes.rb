@@ -3,23 +3,60 @@
 #----------------------------------------------
 # initialize new hash
 applicant = {}
-# prompt the designer for basic data, add data to hash
+# prompt the designer for basic data
 puts "Please enter your client's name"
 client_name = gets.chomp
+# add name to hash
 applicant[:name] = client_name
-p applicant
-#puts "Please enter your client's age"
-#client_age = gets.chomp.to_i
 
-#puts "How many children does #{name} have?"
-#number_of_children = gets.chomp.to_i
-#  if number_of_children == 0
-#    has_children = false
-#  else
-#    has_children = true
-#  end
-#puts "What decor theme would #{name} like?"
-#decor_theme = gets.chomp
-# variables:
-# name, age, number_of_children, has_children, decor_theme
+puts "Please enter your client's age"
+client_age = gets.chomp.to_i
+# add age to hash
+applicant[:age] = client_age
+
+puts "How many children does #{client_name} have?"
+number_of_children = gets.chomp.to_i
+  if number_of_children == 0
+    has_children = false
+  else
+    has_children = true
+  end
+# add boolean value of has_children to hash
+applicant[:has_kids] = has_children
+# add number of children to hash
+applicant[:number_of_kids] = number_of_children
+
+puts "What decor theme would #{client_name} like?"
+decor_theme = gets.chomp
+# add decor theme pref to hash
+applicant[:decor_preference] = decor_theme
+
+#Print the hash back out to the screen when the designer has answered all of the questions.
+puts applicant
 #----------------------------------------------
+# Give the user the opportunity to update a key
+# If the designer says "none", skip it. But if the designer enters "decor_theme" (for example), your program should ask for a new value and update
+
+puts "Would you like to update any of these fields?"
+update_field = gets.chomp
+case update_field
+when "none"
+  puts "Form complete! Final results:"
+when "name"
+  client_name = gets.chomp
+  applicant[:name] = client_name
+when "age"
+  client_age = gets.chomp.to_i
+  applicant[:age] = client_age
+when "has_kids"
+  has_children = gets.chomp
+  applicant[:has_kids] = has_children
+when "number_of_kids"
+  number_of_children = gets.chomp.to_i
+  applicant[:number_of_kids] = number_of_children
+when "decor_preference"
+  decor_theme = gets.chomp
+  applicant[:decor_preference] = decor_theme
+end
+
+puts applicant
