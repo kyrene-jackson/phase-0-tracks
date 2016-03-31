@@ -1,3 +1,22 @@
+# Release 2
+# At the top of your file, add a method that takes three items as parameters and returns an array of those items.
+def build_array(array_1, array_2, array_3)
+  result = []
+  result << array_1
+  result << array_2
+  result << array_3
+  p result
+end
+# At the top of your file, add a method that takes an array and an item as parameters, and returns the array with the item added.
+def add_to_array(new_array, new_item)
+   new_array << new_item
+   p new_array
+end
+# Print a few test calls of the method.
+add_to_array(["monday", "tuesday", "friday"], "saturday")
+
+#-------------------------------------------
+# Release 1
 # Initialize an empty array. Print the array
 example_array = []
 p example_array
@@ -25,3 +44,8 @@ another_array = ['breakfast', 'lunch', 'dinner', 'dessert']
 # Add the two arrays together and store them in a new variable. Print the new array.
 final_array = example_array + another_array
 p final_array
+#-------------------------------------------
+# Release 2 (continued)
+# At the bottom of the file, call the method to show that it works.
+
+build_array("summer", "spring", "fall")
