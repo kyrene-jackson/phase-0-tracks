@@ -46,3 +46,13 @@ ages.map! { |age| age = age.next }
 
 p "After .map! change"
 p ages
+
+# My pair and I were not sure what to do for release 2: number 4 "A method that will remove items from a data structure until the condition in the block evaluates to false, then stops."
+# we tried putting them into conditional statements but we were
+# numbers.map! do |x|
+#   if x == 19
+#     numbers.delete(x)
+#   end
+# end
+#
+# p numbers
