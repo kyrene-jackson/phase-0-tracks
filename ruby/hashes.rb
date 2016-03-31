@@ -42,21 +42,28 @@ update_field = gets.chomp
 case update_field
 when "none"
   puts "Form complete! Final results:"
+  puts applicant
 when "name"
+  puts "Please enter updated name"
   client_name = gets.chomp
   applicant[:name] = client_name
 when "age"
+  puts "Please enter updated age"
   client_age = gets.chomp.to_i
   applicant[:age] = client_age
 when "has_kids"
-  has_children = gets.chomp
+  puts "Does #{client_name} have kids? (true/false)"
+  has_children = gets.chomp.downcase
   applicant[:has_kids] = has_children
 when "number_of_kids"
+  puts "How many kids does #{client_name} have?"
   number_of_children = gets.chomp.to_i
   applicant[:number_of_kids] = number_of_children
 when "decor_preference"
+  puts "What decor theme would #{client_name} like?"
   decor_theme = gets.chomp
   applicant[:decor_preference] = decor_theme
 end
 
+puts "Form complete! Final results: "
 puts applicant
