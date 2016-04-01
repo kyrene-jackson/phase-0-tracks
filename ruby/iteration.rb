@@ -23,7 +23,7 @@ p "Before change"
 p favorite_color
 
 favorite_color.each do |name, color|
-  color = color.upcase
+  p color = color.upcase
 end
 #-----------------------------------
 p "After change"
