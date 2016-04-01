@@ -47,12 +47,48 @@ ages.map! { |age| age = age.next }
 p "After .map! change"
 p ages
 
-# My pair and I were not sure what to do for release 2: number 4 "A method that will remove items from a data structure until the condition in the block evaluates to false, then stops."
-# we tried putting them into conditional statements but we were
-# numbers.map! do |x|
-#   if x == 19
-#     numbers.delete(x)
-#   end
-# end
-#
-# p numbers
+#-----------------------------------
+hash = {
+  mandy: "gray",
+  kyrene: "red",
+  bobby: "green",
+  cindy: "pink",
+  alex: "purple"
+  }
+
+numbers = [27, 21, 25, 18, 19]
+
+
+# 1.) A method that iterates through the items, deleting any that meet a certain condition
+
+# array:
+p numbers.delete_if { |age| age < 20 }
+
+# hash:
+p hash.delete_if { |name, color| color.length < 4 }
+
+
+# 2.) A method that filters a data structure for only items that do satisfy a certain condition
+
+# array:
+p numbers.values_at(1, 3, 4)
+
+# hash:
+p hash.reject { |name,color| color == "red"}
+
+
+# 3.) A different method that filters a data structure for only items satisfying a certain condition
+# array:
+p numbers.select { |age| age < 20 }
+
+
+# hash:
+p hash.rassoc("gray")
+
+# 4.) A method that will remove items from a data structure until the condition in the block evaluates to false, then stops.
+
+# array:
+p numbers.keep_if { |age| age > 20 }
+
+# hash:
+p hash.keep_if { |name, color| color == "green" }
