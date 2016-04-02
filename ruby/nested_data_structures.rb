@@ -1,6 +1,5 @@
 # 5.5- Release 2
 # Design and build a nested data structure to represent a real-world construct.
-# Once you've built it, print a few individual pieces of deeply nested data from the structure, showing that you know how to use multiple indexes or hash keys (or both) to access nested items.
 #-----------------------------------------
 # Construct: Electronics Store :)!
 
@@ -27,8 +26,8 @@ electronics_store = {
       ],
       games: {
         action: 'Grand Theft Auto',
-        rpg: 'Dark Souls'
-        shooter: 'Destiny'
+        rpg: 'Dark Souls',
+        shooter:'Destiny'
       }
 
   },
@@ -41,8 +40,17 @@ electronics_store = {
       ],
       graphics_cards: {
         msi: 'GeForce GTX 970',
-        nvidia: 'GeForce GT 730'
-        amd: 'Radeon R7 360'
+        nvidia: 'GeForce GT 730',
+        amd:'Radeon R7 360'
       }
   }
 }
+#-----------------------------------------
+# Once you've built it, print a few individual pieces of deeply nested data from the structure, showing that you know how to use multiple indexes or hash keys (or both) to access nested items.
+
+# Access- Verizon
+p electronics_store[:aisle_one][:carriers][0]
+# Access- All games
+p electronics_store[:aisle_two][:games]
+# Access- GeForce GTX 970
+p electronics_store[:aisle_three][:graphics_cards][:msi]
