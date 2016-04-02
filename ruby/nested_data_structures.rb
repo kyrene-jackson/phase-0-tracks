@@ -40,39 +40,9 @@ electronics_store = {
         'CyberpowerPC'
       ],
       graphics_cards: {
-
+        msi: 'GeForce GTX 970',
+        nvidia: 'GeForce GT 730'
+        amd: 'Radeon R7 360'
       }
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
