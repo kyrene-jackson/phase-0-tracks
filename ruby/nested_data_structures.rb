@@ -2,7 +2,7 @@
 # Design and build a nested data structure to represent a real-world construct.
 # Once you've built it, print a few individual pieces of deeply nested data from the structure, showing that you know how to use multiple indexes or hash keys (or both) to access nested items.
 #-----------------------------------------
-# Construct: Electronics Store!
+# Construct: Electronics Store :)!
 
 electronics_store = {
   aisle_one: {
@@ -20,6 +20,28 @@ electronics_store = {
   },
   aisle_two: {
     product: 'Video Games',
+      systems: [
+        'Xbox_One',
+        'PS4',
+        'PC'
+      ],
+      games: {
+        action: 'Grand Theft Auto',
+        rpg: 'Dark Souls'
+        shooter: 'Destiny'
+      }
+
+  },
+  aisle_three: {
+    product: 'PC',
+      company: [
+        'Alienware',
+        'ASUS',
+        'CyberpowerPC'
+      ],
+      graphics_cards: {
+
+      }
 
   }
 
