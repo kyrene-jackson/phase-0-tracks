@@ -4,7 +4,7 @@
 def next_vowel(word)
   word.tr!('aeiou', 'eioua')
 end
-# Create another method that takes a consonant to the next consonant in the alphabet
+# Create another method that changes a consonant to the next consonant in the alphabet
 # But does not alter vowels from next_vowel method
 def next_consonant(word)
   word.tr!('bcdfghjklmnpqrstvwxyz', 'cdfghjklmnpqrstvwxyz')
@@ -32,3 +32,4 @@ alias_last_name = next_consonant(last_name)
 # Add both names together and print result
  alias_full_name = alias_first_name + " " + alias_last_name
  p "Your new name is: #{alias_full_name}!"
+ #--------------------------------------
