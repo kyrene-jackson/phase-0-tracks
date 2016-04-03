@@ -1,18 +1,23 @@
-# Ask user for name
-puts "Enter name"
-user_name = gets.chomp.downcase
-# Create a method that converts vowels to the next vowels
-# AEIOU -> EIOUA
+#------------METHODS------------------
+# Create a method that takes a vowel character and returns the next vowel
+# So AEIOU -> EIOUA
 def next_vowel(word)
   word.tr!('aeiou', 'eioua')
 end
-
-new_name = next_vowel(user_name)
-p new_name
-
-# Create a method that converts consonants to the next letter in the alphabet
+# Create another method that takes a consonant to the next consonant in the alphabet
+# But does not alter vowels from next_vowel method
 def next_consonant(word)
   word.tr!('bcdfghjklmnpqrstvwxyz', 'cdfghjklmnpqrstvwxyz')
 end
-
-p next_consonant(new_name)
+#--------------------------------------
+puts "In order to protect your identity, we'll be assigning you an alias!"
+# Ask user for first name
+puts "Please enter your first name"
+name_1 = gets.chomp.downcase
+# Ask user for last name
+puts "Please enter your last name"
+name_2 = gets.chomp.downcase
+# Assign name_1 to last name variable, and name_2  to first name variable
+first_name = name_2
+last_name = name_1
+puts "Please standby while we create your alias"
