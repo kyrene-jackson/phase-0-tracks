@@ -21,3 +21,14 @@ name_2 = gets.chomp.downcase
 first_name = name_2
 last_name = name_1
 puts "Please standby while we create your alias"
+# Pass first_name through both methods
+# Assign result to new variable: alias_first_name
+next_vowel(first_name)
+alias_first_name = next_consonant(first_name)
+# Pass last_name through both methods
+# Assign result to new variable: alias_last_name
+next_vowel(last_name)
+alias_last_name = next_consonant(last_name)
+# Add both names together and print result
+ alias_full_name = alias_first_name + " " + alias_last_name
+ p "Your new name is: #{alias_full_name}!"
