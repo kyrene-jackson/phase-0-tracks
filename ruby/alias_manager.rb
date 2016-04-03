@@ -9,9 +9,9 @@
 # Ask spy for their first and last name
 puts "In order to protect your identity, we'll be assigning you a fake name!"
 puts "What is your first name?"
-first_name = gets.chomp
+first_name = gets.chomp.downcase
 puts "What is your last name?"
-last_name = gets.chomp
+last_name = gets.chomp.downcase
 # Assign results to new variables
 new_first_name = last_name
 new_last_name = first_name
@@ -19,3 +19,6 @@ new_last_name = first_name
 swapped_full_name = new_first_name + ' ' + new_last_name
 # Print swapped full name
 p swapped_full_name
+#-------------------------------------------------------------
+# Step 2
+# Change all of the vowels (a, e, i, o, or u) to the next vowel in 'aeiou'
