@@ -16,9 +16,49 @@ last_name = gets.chomp.downcase
 new_first_name = last_name
 new_last_name = first_name
 # Add both name strings and assign result to a new variable
-swapped_full_name = new_first_name + ' ' + new_last_name
-# Print swapped full name
-p swapped_full_name
+ $name = new_first_name + ' ' + new_last_name
+# # Print swapped full name
+ p $name
 #-------------------------------------------------------------
 # Step 2
 # Change all of the vowels (a, e, i, o, or u) to the next vowel in 'aeiou'
+
+# Create a method that iterates through the name and converts vowels to next vowel in sequence.
+# Method for first name
+def vowel_switcher(word)
+  vowels = ['a', 'e', 'i', 'o', 'u']
+  split_name = $name.split('')
+  converted_name = split_name.map do |word|
+    if vowels.include?(word)
+      test_name = word.tr!('aeiou', 'eioua')
+    end
+    $name = test_name
+  end
+end
+
+vowel_switcher($name)
+p $name
+
+
+def cons_switcher(new_first_name)
+  consonants = ('b'..'d').to_a + ('f'..'h').to_a + ('j'..'n').to_a + ('p'..'t').to_a + ('v'..'z').to_a
+  individual_letter = $new_name_round_one.split('')
+  converted_name = individual_letter.map do |word|
+    if consonants.include?(word)
+      word.tr!('bcdfghjklmnpqrstvwxyz', 'cdfghjklmnpqrstvwxyb')
+      p word
+    end
+  end
+end
+
+
+
+
+#------------------------------------
+# Step 3
+# Change all consonants (everything else besides the vowels) to the next consonant in the alphabet.
+
+
+# method that iterates through the swapped_full_name by splitting it into an array then comparing each letter of the array against the vowels array. If it doesn't have a vowel it's a consonant.
+
+#and moving them to the next letter in the alphabet?
