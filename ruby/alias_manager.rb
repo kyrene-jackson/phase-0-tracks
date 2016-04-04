@@ -55,7 +55,7 @@ alphabet = ('a'..'z').to_a
 # Split first and last names
 alias_first_name_array = alias_first_name.split('')
 alias_last_name_array = alias_last_name.split('')
-# Check to ensure the name minus the alphabet returns an empty array. If it doesn't, it must contain blanks, numbers, or symbols
+# Check to ensure the name minus the alphabet returns an empty array. If it doesn't, it must contain blanks, numbers, or symbols and is therefore invalid.
 valid_first_name = (alias_first_name_array - alphabet).empty?
 valid_last_name = (alias_last_name_array - alphabet).empty?
 # Using result of the check, create a conditional
