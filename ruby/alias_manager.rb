@@ -10,6 +10,8 @@ def next_consonant(word)
   word.tr!('bcdfghjklmnpqrstvwxyz', 'cdfghjklmnpqrstvwxyz')
 end
 #--------------------------------------
+# Initialize empty hash to store results
+results_hash = {}
 puts "In order to protect your identity, we'll be assigning you an alias!"
 puts "Once you find one you like, exit the program by typing 'quit'"
 # Begin loop. Run program until user types 'quit'
@@ -26,6 +28,8 @@ break if terminate
 # Ask user for last name
 puts "Please enter your last name"
 name_2 = gets.chomp.downcase
+# Store full name value for hash
+real_name = name_1 + " " + name_2
 # End program if user enters quit for their last name
 if name_2 == "quit"
   terminate = true
@@ -57,9 +61,12 @@ valid_last_name = (alias_last_name_array - alphabet).empty?
 # Using result of the check, create a conditional
 if valid_first_name && valid_last_name
   puts "Your new name is: #{alias_full_name}!"
+  results_hash[real_name] = alias_full_name
 else
   puts "ERROR 501: Invalid character used, please try again"
 end
 end
 
-puts "Good luck out in the field!"
+p results_hash
+#-----------------------
+# Use a data structure to store the fake names as they are entered. When the user exits the program, iterate through the data structure and print all of the data the user entered. A sentence like "Vussit Gimodoe is actually Felicia Torres" or "Felicia Torres is also known as Vussit Gimodoe" for each agent is fine.
