@@ -12,8 +12,8 @@ end
 #--------------------------------------
 # Initialize empty hash to store results
 results_hash = {}
-puts "In order to protect your identity, we'll be assigning you an alias!"
-puts "Once you find one you like, exit the program by typing 'quit'"
+puts "Greetings agents! In order to protect your identity, we'll be assigning you an alias."
+puts "Once all agents are processed, exit the program by typing 'quit'"
 # Begin loop. Run program until user types 'quit'
 terminate = false
 until terminate == "true"
@@ -66,7 +66,9 @@ else
   puts "ERROR 501: Invalid character used, please try again"
 end
 end
-
-p results_hash
-#-----------------------
-# Use a data structure to store the fake names as they are entered. When the user exits the program, iterate through the data structure and print all of the data the user entered. A sentence like "Vussit Gimodoe is actually Felicia Torres" or "Felicia Torres is also known as Vussit Gimodoe" for each agent is fine.
+# Print results
+puts "Your results: "
+# Iterate through the results hash and display keys and values in a logical sentence.
+results_hash.each do |real, fake|
+  puts "#{real} is also known as #{fake}"
+end
