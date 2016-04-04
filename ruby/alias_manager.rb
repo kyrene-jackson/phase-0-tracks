@@ -11,13 +11,27 @@ def next_consonant(word)
 end
 #--------------------------------------
 puts "In order to protect your identity, we'll be assigning you an alias!"
+puts "Once you find one you like, exit the program by typing 'quit'"
+# Begin loop. Run program until user types 'quit'
+terminate = false
+until terminate == "true"
 # Ask user for first name
 puts "Please enter your first name"
 name_1 = gets.chomp.downcase
+# End program if user enters quit for their first name
+if name_1 == "quit"
+  terminate = true
+end
+break if terminate
 # Ask user for last name
 puts "Please enter your last name"
 name_2 = gets.chomp.downcase
-# Assign name_1 to last name variable, and name_2  to first name variable
+# End program if user enters quit for their last name
+if name_2 == "quit"
+  terminate = true
+end
+break if terminate
+# Assign name_1 to last name variable, and name_2 to first name variable
 first_name = name_2
 last_name = name_1
 puts "Please standby while we create your alias..."
@@ -42,7 +56,10 @@ valid_first_name = (alias_first_name_array - alphabet).empty?
 valid_last_name = (alias_last_name_array - alphabet).empty?
 # Using result of the check, create a conditional
 if valid_first_name && valid_last_name
-  p "Your new name is: #{alias_full_name}!"
+  puts "Your new name is: #{alias_full_name}!"
 else
-  p "ERROR 501: Invalid character used, please try again"
+  puts "ERROR 501: Invalid character used, please try again"
 end
+end
+
+puts "Good luck out in the field!"
