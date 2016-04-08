@@ -1,7 +1,9 @@
 #create a santa class with 3 instance methods
 #methods: speak, eat_milk_and_cookies, and initialize
-#update santa with new attributes: gender, ethnicity, reindeer_ranking, and age
+#update santa class with new attributes: gender, ethnicity, reindeer_ranking, and age
+#refactor santa class with getter and setter shortcuts
 class Santa
+  attr_reader :gender, :ethnicity
   def initialize(gender, ethnicity)
     @gender = gender
     @ethnicity = ethnicity
@@ -14,7 +16,7 @@ class Santa
   def eat_milk_and_cookies(cookie_type)
     puts "That was a good #{cookie_type}!"
   end
-  #add two attribute changing methods to santa class
+  #add two attribute changing methods
   def celebrate_birthday
     @age.next
   end
@@ -24,18 +26,18 @@ class Santa
     @reindeer_ranking.push(reindeer)
    end
  #add two getter methods: gender => @gender, ethnicity => @ethnicity
-  def gender
-    @gender
-  end
-  def ethnicity
-    @ethnicity
-  end
+  # def gender
+  #   @gender
+  # end
+  # def ethnicity
+  #   @ethnicity
+  # end
 end
 
 
 #=========DRIVER CODE=============================
 # create practice instance
-# practice = Santa.new("Female", "Brazilian")
+practice = Santa.new("Female", "Brazilian")
 # TEST: initialize, speak, and eat_milk_and_cookies methods
 # practice.speak
 # practice.eat_milk_and_cookies("snickerdoodle")
@@ -51,5 +53,5 @@ end
 # practice.celebrate_birthday
 # p practice.get_mad_at("Vixen")
 # TEST: getter methods
-# p practice.gender
-# p practice.ethnicity
+ p practice.gender
+ p practice.ethnicity
