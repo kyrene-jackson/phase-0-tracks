@@ -27,15 +27,32 @@
   #Use an initialize method that sets at least one attribute
 
 class Wizard
+  attr_accessor :dragon_color, :dragon_type, :name, :number
+  attr_reader :number_of_casts, :spell_type
   def initialize(name)
     puts "initializing new wizard..."
     @name = name
-    @spell_type = spell_type
-    @number_of_casts = number_of_casts
+    @spell_type = ["fire", "frost", "arcane"]
+    @number_of_casts = number
     @dragon_color = ["azure", "bronze", "crimson", "emerald", "silver"]
     @dragon_type = ["hydra", "drake", "wyvern", "serpent"]
   end
-  def cast_spell(number_of_casts, spell_type)
-    puts "#{name} casted #{number_of_casts} #{spell_type} spells!"
+  def cast_spell(number)
+    puts "#{name} casted #{number} #{spell_type.sample} spells!"
   end
-  
+  def summon_dragon
+    puts "#{name} summoned a #{dragon_color.sample} #{dragon_type.sample}!"
+  end
+  def teleport
+    puts "Wait..where did #{name} go?.."
+  end
+end
+
+example = Wizard.new("kaelthas")
+example.teleport
+#=======================RELEASE 2===============================
+#release 2: use class in a program
+#requirements ->
+  #Your user should be allowed to create as many instances of your class as they like.
+  #Prompt the user for each attribute, and don't forget to convert their input to the appropriate data type. Store these class instances in an array.
+  #When the user indicates that they are finished creating instances, loop through the array and print out the attributes of each instance as a confirmation message of what was created.
