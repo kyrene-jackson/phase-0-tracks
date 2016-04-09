@@ -13,12 +13,12 @@
 #attribute 2: spell type
 #attribute 3: number of casts
 #attribute 4: dragon color
-#attribute 5: dragon type
+
 
 #example output
 #initialize output: "(Kael'thas)"
 #cast spell output: "Kael'thas casted (3) (fire) spells!"
-#summon dragon output: "(Kael'thas) summoned a (crimson) (hydra)!"
+#summon dragon output: "(Kael'thas) summoned a (crimson) dragon!"
 #teleport: Wait..where did (Kael'thas) go?...
 #=======================RELEASE 1===============================
 #release 1: write your class
@@ -27,7 +27,7 @@
   #Use an initialize method that sets at least one attribute
 
 class Wizard
-  attr_accessor :dragon_color, :dragon_type, :name, :number
+  attr_accessor :dragon_color, :name, :number
   attr_reader :number_of_casts, :spell_type
   def initialize(name)
     puts "initializing new wizard..."
@@ -35,13 +35,12 @@ class Wizard
     @spell_type = ["fire", "frost", "arcane"]
     @number_of_casts = number
     @dragon_color = ["azure", "bronze", "crimson", "emerald", "silver"]
-    @dragon_type = ["hydra", "drake", "wyvern", "serpent"]
   end
   def cast_spell(number)
     puts "#{name} casted #{number} #{spell_type.sample} spells!"
   end
   def summon_dragon
-    puts "#{name} summoned a #{dragon_color.sample} #{dragon_type.sample}!"
+    puts "#{name} summoned a #{dragon_color.sample} dragon!"
   end
   def teleport
     puts "Wait..where did #{name} go?.."
@@ -75,4 +74,17 @@ example.teleport
 #STEP 4
 #create empty array for storing instances
 #STEP 5
-#iterate through storage array and print out the attributes 
+#iterate through storage array and print out the attributes
+
+#attributes: name, spell type, cast number, dragon color, dragon type
+
+puts "Welcome to create-a-wiz where you will be making your own wizard complete with spells and its own pet dragon!"
+puts "Give your wizard a name"
+name = gets.chomp
+puts "What is your wizard's favorite spell class? (for example: fire)"
+spell_type = gets.chomp
+puts "Enter a number"
+number_of_casts = gets.chomp
+puts "What color dragon would your wizard like?"
+dragon_color = gets.chomp
+puts "What type of dragon would your wizard like?"
