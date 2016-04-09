@@ -27,29 +27,28 @@
 #   Use an initialize method that sets at least one attribute
 
 class Wizard
-  attr_accessor :name, :spell_type, :cast_number
+  attr_accessor :name, :spell_type, :cast_number, :dragon_color
   attr_reader :dragon_type
   def initialize(name)
-    puts "initializing new wizard..."
+    puts "Initializing new wizard..."
     @name = name
-    @spell_type = spell_type
     @cast_number = cast_number
+    @spell_type = spell_type
     @dragon_color = dragon_color
-    @dragon_type = ["hydra", "drake", "wyvern", "serpent"].sample 
+    @dragon_type = ["hydra", "drake", "wyvern"]
   end
-  def cast_spell(number)
-    puts "#{name} casted #{number} #{spell_type.sample} spells!"
+  def cast_spell(number, spell_type)
+    puts "Woah! #{name} casted #{number} #{spell_type} spell(s)!"
   end
-  def summon_dragon
-    puts "#{name} summoned a #{dragon_color.sample} dragon!"
+  def summon_dragon(dragon_color)
+    puts "#{name} summoned a #{dragon_color} #{dragon_type.sample}!"
   end
   def teleport
-    puts "Wait..where did #{name} go?.."
+    puts "In the blink of an eye #{name} vanished..."
   end
 end
 
-example = Wizard.new("kaelthas")
-example.teleport
+
 #=======================RELEASE 2===============================
 #release 2: use class in a program
 #requirements ->
@@ -74,22 +73,36 @@ example.teleport
 #STEP 4
 #create empty array for storing instances
 #STEP 5
-#iterate through storage array and print out the attributes
+#call class methods using users input
+#add values to result array
+#then ask if the user wants to continue or stop
+  #if stop -> iterate through array and list of attributes for each instance
+  #if continue -> restart loop
 
-#attributes: name, spell type, cast number, dragon color
+#create a loop that:
+  #initializes a new instance using the users (name)
+  #
 
+
+#attributes: name, spell type, cast number, dragon color, dragon type
+#example output
+#initialize output: "(Kael'thas)"
+#cast spell output: "Kael'thas casted (3) (fire) spells!"
+#summon dragon output: "(Kael'thas) summoned a (crimson) dragon!"
+#teleport: Wait..where did (Kael'thas) go?...
 
 random_color = ["azure", "bronze", "crimson", "emerald", "silver"]
+result_array = []
 
-#STEP 1 & STEP 2
+#start loop here to reassign values before initializing
 puts "Welcome to Create-a-Wiz where you will be making your own wizard complete with spells and its own pet dragon!"
 puts "Give your wizard a name"
-name = gets.chomp.downcase
-puts "What is your wizard's favorite spell class? (for example: fire)"
-spell_type = gets.chomp.downcase
+name = gets.chomp.capitalize
 puts "Enter a number"
 cast_number = gets.chomp.to_i
-puts "Do you want your new dragon's color to be a surprise? (y/n)"
+puts "What is your wizard's favorite spell class? (for example: fire)"
+spell_type = gets.chomp.downcase
+puts "Do you want the dragon's color to be a surprise? (y/n)"
 color_preference = gets.chomp.downcase
 if color_preference == "y"
   dragon_color = random_color.sample
@@ -97,8 +110,18 @@ else
   puts "Enter a color for your wizard's pet dragon"
   dragon_color = gets.chomp.downcase
 end
+#initialize new instance using input data
+new_wizard = Wizard.new(name)
+new_wizard.cast_spell(cast_number, spell_type)
+new_wizard.summon_dragon(dragon_color)
+new_wizard.teleport
 
-p name
-p spell_type
-p cast_number
-p dragon_color
+
+
+
+
+
+# p name
+# p spell_type
+# p cast_number
+# p dragon_color
