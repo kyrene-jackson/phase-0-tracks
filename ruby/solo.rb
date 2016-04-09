@@ -77,4 +77,5 @@ elsif status == "n"
   wants_to_continue = "no"
 end
 end
-puts result_array
+
+result_array.each { |result| p result }
