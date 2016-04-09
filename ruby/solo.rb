@@ -25,30 +25,30 @@
 #requirements ->
   #Use attr_reader and attr_accessor
   #Use an initialize method that sets at least one attribute
-
-class Wizard
-  attr_accessor :dragon_color, :name, :number
-  attr_reader :number_of_casts, :spell_type
-  def initialize(name)
-    puts "initializing new wizard..."
-    @name = name
-    @spell_type = ["fire", "frost", "arcane"]
-    @number_of_casts = number
-    @dragon_color = ["azure", "bronze", "crimson", "emerald", "silver"]
-  end
-  def cast_spell(number)
-    puts "#{name} casted #{number} #{spell_type.sample} spells!"
-  end
-  def summon_dragon
-    puts "#{name} summoned a #{dragon_color.sample} dragon!"
-  end
-  def teleport
-    puts "Wait..where did #{name} go?.."
-  end
-end
-
-example = Wizard.new("kaelthas")
-example.teleport
+#
+# class Wizard
+#   attr_accessor :name, :spell_type, :cast_number
+#   attr_reader :number_of_casts, :spell_type
+#   def initialize(name)
+#     puts "initializing new wizard..."
+#     @name = name
+#     @spell_type = spell_type
+#     @cast_number = cast_number
+#     @dragon_color =
+#   end
+#   def cast_spell(number)
+#     puts "#{name} casted #{number} #{spell_type.sample} spells!"
+#   end
+#   def summon_dragon
+#     puts "#{name} summoned a #{dragon_color.sample} dragon!"
+#   end
+#   def teleport
+#     puts "Wait..where did #{name} go?.."
+#   end
+# end
+#
+# example = Wizard.new("kaelthas")
+# example.teleport
 #=======================RELEASE 2===============================
 #release 2: use class in a program
 #requirements ->
@@ -63,7 +63,6 @@ example.teleport
 #enter a spell type
 #enter a number of casts
 #enter a dragon color
-#enter a dragon type
 #STEP 2
 #convert user input to proper data type. for example:
 #number_of_casts.to_i
@@ -76,15 +75,29 @@ example.teleport
 #STEP 5
 #iterate through storage array and print out the attributes
 
-#attributes: name, spell type, cast number, dragon color, dragon type
+#attributes: name, spell type, cast number, dragon color
 
-puts "Welcome to create-a-wiz where you will be making your own wizard complete with spells and its own pet dragon!"
+
+random_color = ["azure", "bronze", "crimson", "emerald", "silver"]
+
+#STEP 1 & STEP 2
+puts "Welcome to Create-a-Wiz where you will be making your own wizard complete with spells and its own pet dragon!"
 puts "Give your wizard a name"
-name = gets.chomp
+name = gets.chomp.downcase
 puts "What is your wizard's favorite spell class? (for example: fire)"
-spell_type = gets.chomp
+spell_type = gets.chomp.downcase
 puts "Enter a number"
-number_of_casts = gets.chomp
-puts "What color dragon would your wizard like?"
-dragon_color = gets.chomp
-puts "What type of dragon would your wizard like?"
+cast_number = gets.chomp.to_i
+puts "Do you want your new dragon's color to be a surprise? (y/n)"
+color_preference = gets.chomp.downcase
+if color_preference == "y"
+  dragon_color = random_color.sample
+else
+  puts "Enter a color for your wizard's pet dragon"
+  dragon_color = gets.chomp.downcase
+end
+
+p name
+p spell_type
+p cast_number
+p dragon_color
