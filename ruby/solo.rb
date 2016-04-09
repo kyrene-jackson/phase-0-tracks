@@ -35,3 +35,7 @@ class Wizard
     @dragon_color = ["azure", "bronze", "crimson", "emerald", "silver"]
     @dragon_type = ["hydra", "drake", "wyvern", "serpent"]
   end
+  def cast_spell(number_of_casts, spell_type)
+    puts "#{name} casted #{number_of_casts} #{spell_type} spells!"
+  end
+  
