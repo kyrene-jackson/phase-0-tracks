@@ -1,8 +1,7 @@
 #create a santa class with 3 instance methods
-#methods: speak, eat_milk_and_cookies, and initialize
 #update santa class with new attributes: gender, ethnicity, reindeer_ranking, and age
 #refactor santa class with getter/setter shortcuts
-#note: commented code out instead of deleting for grading purposes!
+#note: commented out old instead of deleting for grading purposes!
 class Santa
   attr_accessor :gender, :ethnicity, :age
   attr_reader :reindeer_ranking
@@ -74,7 +73,7 @@ random_greeting = greeting.sample
 #begin loop. reassign random values to each variable every loop
 count = 0
 puts "Welcome to SantaCon! Lets check out what kind of Santas are attending this year: "
-until count >= 10
+until count >= 15
 create_santa = Santa.new(random_gender, random_ethnicity, random_age)
 random_rank = create_santa.get_mad_at(create_santa.reindeer_ranking.sample)
 puts "#{random_greeting} I am a #{create_santa.age} year old #{create_santa.gender}, #{create_santa.ethnicity} Santa!"
