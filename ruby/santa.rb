@@ -75,12 +75,13 @@ count = 0
 puts "Welcome to SantaCon! Lets check out what kind of Santas are attending this year: "
 until count >= 15
 create_santa = Santa.new(random_gender, random_ethnicity, random_age)
-random_rank = create_santa.get_mad_at(create_santa.reindeer_ranking.sample)
-puts "#{random_greeting} I am a #{create_santa.age} year old #{create_santa.gender}, #{create_santa.ethnicity} Santa!"
+random_rank = nil
+puts "#{random_greeting} I am a #{create_santa.age} year old #{create_santa.gender}, #{create_santa.ethnicity} Santa! My reindeer rank from most favorite to least is: #{random_rank}"
 random_gender = example_genders.sample
 random_ethnicity = example_ethnicities.sample
 random_greeting = greeting.sample
 random_age = rand(0..140)
+random_rank = puts create_santa.get_mad_at(create_santa.reindeer_ranking.sample)
 count += 1
 end
 puts "Wow! Gotta love such a diverse crowd!"
