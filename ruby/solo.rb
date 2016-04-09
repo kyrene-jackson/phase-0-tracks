@@ -54,5 +54,25 @@ example.teleport
 #release 2: use class in a program
 #requirements ->
   #Your user should be allowed to create as many instances of your class as they like.
-  #Prompt the user for each attribute, and don't forget to convert their input to the appropriate data type. Store these class instances in an array.
+  #Prompt the user for each attribute, and don't forget to convert their input to the appropriate data type.
+  #Store these class instances in an array.
   #When the user indicates that they are finished creating instances, loop through the array and print out the attributes of each instance as a confirmation message of what was created.
+
+#STEP 1
+#prompt user for each attribute
+#enter a name
+#enter a spell type
+#enter a number of casts
+#enter a dragon color
+#enter a dragon type
+#STEP 2
+#convert user input to proper data type. for example:
+#number_of_casts.to_i
+#STEP 3
+#assign values to instance variables/attributes. for example:
+#@name = name
+#@spell_type = spell_type
+#STEP 4
+#create empty array for storing instances
+#STEP 5
+#iterate through storage array and print out the attributes 
