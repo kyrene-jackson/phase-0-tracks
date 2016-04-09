@@ -21,34 +21,35 @@
 #summon dragon output: "(Kael'thas) summoned a (crimson) dragon!"
 #teleport: Wait..where did (Kael'thas) go?...
 #=======================RELEASE 1===============================
-#release 1: write your class
-#requirements ->
-  #Use attr_reader and attr_accessor
-  #Use an initialize method that sets at least one attribute
-#
-# class Wizard
-#   attr_accessor :name, :spell_type, :cast_number
-#   attr_reader :number_of_casts, :spell_type
-#   def initialize(name)
-#     puts "initializing new wizard..."
-#     @name = name
-#     @spell_type = spell_type
-#     @cast_number = cast_number
-#     @dragon_color =
-#   end
-#   def cast_spell(number)
-#     puts "#{name} casted #{number} #{spell_type.sample} spells!"
-#   end
-#   def summon_dragon
-#     puts "#{name} summoned a #{dragon_color.sample} dragon!"
-#   end
-#   def teleport
-#     puts "Wait..where did #{name} go?.."
-#   end
-# end
-#
-# example = Wizard.new("kaelthas")
-# example.teleport
+# release 1: write your class
+# requirements ->
+#   Use attr_reader and attr_accessor
+#   Use an initialize method that sets at least one attribute
+
+class Wizard
+  attr_accessor :name, :spell_type, :cast_number
+  attr_reader :dragon_type
+  def initialize(name)
+    puts "initializing new wizard..."
+    @name = name
+    @spell_type = spell_type
+    @cast_number = cast_number
+    @dragon_color = dragon_color
+    @dragon_type = ["hydra", "drake", "wyvern", "serpent"].sample 
+  end
+  def cast_spell(number)
+    puts "#{name} casted #{number} #{spell_type.sample} spells!"
+  end
+  def summon_dragon
+    puts "#{name} summoned a #{dragon_color.sample} dragon!"
+  end
+  def teleport
+    puts "Wait..where did #{name} go?.."
+  end
+end
+
+example = Wizard.new("kaelthas")
+example.teleport
 #=======================RELEASE 2===============================
 #release 2: use class in a program
 #requirements ->
