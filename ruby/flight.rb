@@ -4,7 +4,6 @@ module Flight
   end
 end
 
-
 class Bird
   include Flight
 end
