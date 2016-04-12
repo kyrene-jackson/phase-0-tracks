@@ -1,28 +1,30 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [with: Mandy].
+# We spent [2] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require_relative tries to load the data from the file name given as a string (relative to where the current file is).
+# Whereas require would require the full file path.
+
 require_relative 'state_data'
 
 class VirusPredictor
-
+  # On each new instance, accepts 3 arguments and assigns those arguments as the values of each instance variable for that instance.
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  # Takes state data from hash and passes it to the predicted_deaths and speed_of_spread methods and prints out the results from each.
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
   private
-
+  # Takes population_density, population and state values and based off the population_density, calculates the number_of_deaths and assigns # its value to the integer <= the resulting float.
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,11 +43,11 @@ class VirusPredictor
 
   end
 
+  #Takes population_density and state values and based on population_density, calculates the speed of the spread of the disease.
   def speed_of_spread(population_density, state) #in months
-    # We are still perfecting our formula here. The speed is also affected
-    # by additional factors we haven't added into this functionality.
+     # We are still perfecting our formula here. The speed is also affected
+     # by additional factors we haven't added into this functionality.
     speed = 0.0
-
     if @population_density >= 200
       speed += 0.5
     elsif @population_density >= 150
@@ -67,8 +69,7 @@ end
 #=======================================================================
 
 # DRIVER CODE
- # initialize VirusPredictor for each state
-
+ initialize VirusPredictor for each state
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
@@ -82,6 +83,10 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
+STATE_DATA.each do |state, data|
+  current_state = VirusPredictor.new(state, data[:population_density], data[:population])
+  current_state.virus_effects
+end
 
 #=======================================================================
 # Reflection Section
