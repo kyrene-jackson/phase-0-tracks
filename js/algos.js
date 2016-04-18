@@ -1,4 +1,5 @@
 /*
+RELEASE 0: FIND THE LONGEST WORD
 write a function that takes an array of words or phrases,
 and returns the longest word in the array.
 example input: ['mint', 'gum', 'lollipop']
@@ -14,10 +15,8 @@ step 4: FOR the length of the input array TIMES:
 step 9: Once last string is evaluated, print 'longestWord'
 */
 
-// DRIVER CODE
 var longestWord = null;
 var currentWord = null;
-
 
 function findWord(array) {
   for (var i = 0; i < array.length; i++) {
@@ -30,4 +29,51 @@ function findWord(array) {
   console.log("The longest word is: " + longestWord + ".");
 }
 
+/*
+RELEASE 1: FIND A KEY-VALUE MATCH
+write a function that takes two objects and checks to see
+if the objects share at least one key-value pair.
+example input: {name: "Steven", age: 54} and {name: "Tamir", age: 54}
+example return value: true
+if no pairs match the function should RETURN false.
+keep in mind that the two objects may not even have any of the same keys.
+note: algorithim assumes both input objects have 2 key-value pairs.
+
+step 1: create new function that takes 2 parameters
+step 2: create 2 empty arrays, assign one to 'firstArr'
+and the other to 'secondArr'
+step 3: for first object, iterate through each key-value pair
+and store ONLY its values into 'firstArr'
+step 4: for second object, iterate through each key-value pair
+and store ONLY its values into 'secondArr'
+step 5: create another empty array 'finalArr'
+step 6: FOR length of 'firstArr' or 'secondArr' TIMES
+      step 7: iterate through 'firstArr', adding each value into 'finalArr'
+      step 8: iterate through 'secondArr' adding each value into 'finalArr'
+step 9: IF any of 'firstArr' values match 'secondArr' values:
+delete an item out of 'finalArr'
+step 10: If the length of 'finalArr' is LESS than 4:
+      there was a match, return TRUE
+      ELSE there was no match, return FALSE
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DRIVER CODE (RELEASE 0)
 findWord(['mint', 'gum', 'lollipop']);
+findWord(['pizza', 'chocolate', 'muffins']);
+// DRIVER CODE (RELEASE 1)
+
+
+
+// DRIVER CODE (RELEASE 2)
