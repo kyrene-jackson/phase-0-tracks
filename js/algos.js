@@ -69,18 +69,44 @@ for (var i = 0; i < setOne.length; i++) {
 		return false;
 	}
 }
-
 }
 
+/*
+RELEASE 2: GENERATE RANDOM TEST DATA
+Write a function that takes an integer for length,
+builds and returns an array of strings of the given length.
+example input: 3
+example output: ["asd", "bcwqd", "jkfnnnn"]
+The words should be of randomly varying length,
+with a minimum of 1 letter and a maximum of 10 letters.
+
+step 1: create new function that takes one integer as a parameter
+step 2: create new array with a length based off of input
+step 3: store the alphabet into a new variable
+step 4: split the alphabet into individual letters (array)
+step 5: create random number generator with max 10 and min 1
+step 6: iterate through alphabet array, collecting letters equal to random number
+step 7: join individual letters into a strings
+step 8: store into array
+step 9: continue until array length is equal to input number
 
 
+note: Release not yet completed :(
 
-
-
-
-
-
-
+*/
+// function randomData(number) {
+// 	finalArr = new Array(number);
+// 	var alphabet = "abcdefghijklmnopqrstuvwxzy";
+// 	var letters = alphabet.split('');
+// 	var newWord = " ";
+// 	for (var i = 0; i < number; i++) {
+// 		var strLength = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+// 		newWord = letters[i]
+// 		finalWord = letters.toString("");
+// 		finalArr.push(newWord);
+// 		console.log(finalArr);
+// 	}
+// }
 
 
 // DRIVER CODE (RELEASE 0)
@@ -88,11 +114,12 @@ for (var i = 0; i < setOne.length; i++) {
 // findWord(['pizza', 'chocolate', 'muffins']);
 //
 // DRIVER CODE (RELEASE 1)
-var firstObj = {name: 'Kyrene', age: 21};
-var secondObj = {name: 'Kyrene', age: 10};
-console.log(findMatch(firstObj, secondObj));
-var firstObj = {name: 'Kyrene', age: 21};
-var secondObj = {name: 'Max', age: 10};
-console.log(findMatch(firstObj, secondObj));
+// var firstObj = {name: 'Kyrene', age: 21};
+// var secondObj = {name: 'Kyrene', age: 10};
+// console.log(findMatch(firstObj, secondObj));
+// var firstObj = {name: 'Kyrene', age: 21};
+// var secondObj = {name: 'Max', age: 10};
+// console.log(findMatch(firstObj, secondObj));
 //
 // DRIVER CODE (RELEASE 2)
+// randomData(5)
