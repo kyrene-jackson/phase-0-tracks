@@ -69,8 +69,8 @@ for (var i = 0; i < setOne.length; i++) {
 		return false;
 	}
 }
-}
 
+}
 
 
 
@@ -86,13 +86,13 @@ for (var i = 0; i < setOne.length; i++) {
 // DRIVER CODE (RELEASE 0)
 // findWord(['mint', 'gum', 'lollipop']);
 // findWord(['pizza', 'chocolate', 'muffins']);
-// DRIVER CODE (RELEASE 1)
-// var firstObj = {name: 'Kyrene', age: 10};
-// var secondObj = {name: 'Kyrene', age:21};
-// console.log(findMatch(firstObj, secondObj));
 //
-// var nextObj = {name: 'Max', age: 10};
-// var anotherObj = {name: 'Kyrene', age: 21}
-// console.log(findMatch(nextObj, anotherObj));
-
+// DRIVER CODE (RELEASE 1)
+var firstObj = {name: 'Kyrene', age: 21};
+var secondObj = {name: 'Kyrene', age: 10};
+console.log(findMatch(firstObj, secondObj));
+var firstObj = {name: 'Kyrene', age: 21};
+var secondObj = {name: 'Max', age: 10};
+console.log(findMatch(firstObj, secondObj));
+//
 // DRIVER CODE (RELEASE 2)
