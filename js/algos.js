@@ -37,16 +37,17 @@ example input: {name: "Steven", age: 54} and {name: "Tamir", age: 54}
 example return value: true
 if no pairs match the function should RETURN false.
 keep in mind that the two objects may not even have any of the same keys.
+
 note: algorithim assumes both input objects have 2 key-value pairs.
 
-step 1: create new function that takes 2 parameters
+step 1: create new function 'toArray' that takes 2 objects and converts them into Arrays
 step 2: create 2 empty arrays, assign one to 'firstArr'
 and the other to 'secondArr'
 step 3: for first object, iterate through each key-value pair
 and store ONLY its values into 'firstArr'
 step 4: for second object, iterate through each key-value pair
 and store ONLY its values into 'secondArr'
-step 5: create another empty array 'finalArr'
+step 5: create a nested function 'findMatch' that will compare results of 'toArray'
 step 6: FOR length of 'firstArr' or 'secondArr' TIMES
       step 7: iterate through 'firstArr', adding each value into 'finalArr'
       step 8: iterate through 'secondArr' adding each value into 'finalArr'
@@ -56,6 +57,41 @@ step 10: If the length of 'finalArr' is LESS than 4:
       there was a match, return TRUE
       ELSE there was no match, return FALSE
 */
+var firstArr = [];
+var secondArr = [];
+function toArray(objOne, objTwo) {
+  for (var x in objOne) {
+    firstArr.push(objOne[x]);
+  }
+  for (var x in objTwo) {
+    secondArr.push(objTwo[x]);
+  }
+  console.log(firstArr);
+  console.log(secondArr);
+}
+var finalArr = [];
+function detectMatch(x, y) {
+  for (i = 0; i < x.length; i++) {
+    finalArr.push(x[i]);
+    finalArr.push(y[i]);
+    if (x[i] == y[i]) {
+      finalArr.pop();
+    }
+
+  if (finalArr.length < 4) {
+    return true;
+  } else {
+    return false;
+  }
+}
+}
+
+
+var testOne = {name: "Tammy", age: 100};
+var testTwo = {name: "Jack", age: 18};
+
+toArray(testOne, testTwo);
+detectMatch(toArray(testOne, testTwo));
 
 
 
@@ -70,8 +106,8 @@ step 10: If the length of 'finalArr' is LESS than 4:
 
 
 // DRIVER CODE (RELEASE 0)
-findWord(['mint', 'gum', 'lollipop']);
-findWord(['pizza', 'chocolate', 'muffins']);
+// findWord(['mint', 'gum', 'lollipop']);
+// findWord(['pizza', 'chocolate', 'muffins']);
 // DRIVER CODE (RELEASE 1)
 
 
