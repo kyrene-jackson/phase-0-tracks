@@ -40,58 +40,36 @@ keep in mind that the two objects may not even have any of the same keys.
 
 note: algorithim assumes both input objects have 2 key-value pairs.
 
-step 1: create new function 'toArray' that takes 2 objects and converts them into Arrays
-step 2: create 2 empty arrays, assign one to 'firstArr'
-and the other to 'secondArr'
-step 3: for first object, iterate through each key-value pair
-and store ONLY its values into 'firstArr'
-step 4: for second object, iterate through each key-value pair
-and store ONLY its values into 'secondArr'
-step 5: create a nested function 'findMatch' that will compare results of 'toArray'
-step 6: FOR length of 'firstArr' or 'secondArr' TIMES
-      step 7: iterate through 'firstArr', adding each value into 'finalArr'
-      step 8: iterate through 'secondArr' adding each value into 'finalArr'
-step 9: IF any of 'firstArr' values match 'secondArr' values:
-delete an item out of 'finalArr'
-step 10: If the length of 'finalArr' is LESS than 4:
-      there was a match, return TRUE
-      ELSE there was no match, return FALSE
+step 1: create new function that takes two objects as parameters
+step 2: create empty array to store values of both objects
+step 3: iterate through key-value pairs of each object
+step 4: store ONLY values into array
+step 5: split value sets into two individual arrays
+step 6: assign new variable to each array
+step 7: iterate through both arrays, comparing each value
+step 8: IF a value from both arrays are the same DATA type and VALUE
+      step 9: retrn true
+      step 10: ELSE return false
 */
-var firstArr = [];
-var secondArr = [];
-function toArray(objOne, objTwo) {
-  for (var x in objOne) {
-    firstArr.push(objOne[x]);
-  }
-  for (var x in objTwo) {
-    secondArr.push(objTwo[x]);
-  }
-  console.log(firstArr);
-  console.log(secondArr);
-}
-var finalArr = [];
-function detectMatch(x, y) {
-  for (i = 0; i < x.length; i++) {
-    finalArr.push(x[i]);
-    finalArr.push(y[i]);
-    if (x[i] == y[i]) {
-      finalArr.pop();
-    }
 
-  if (finalArr.length < 4) {
-    return true;
-  } else {
-    return false;
-  }
+function findMatch(objOne, objTwo) {
+	var storeVal = [];
+	for (var key in objOne) {
+  storeVal.push((objOne[key]));
+}
+for (var key in objTwo) {
+  storeVal.push((objTwo[key]));
+}
+var setOne = storeVal.slice(0, 2);
+var setTwo = storeVal.slice(2, 4);
+for (var i = 0; i < setOne.length; i++) {
+	if (setOne[i] === setTwo[i]) {
+		return true;
+	} else {
+		return false;
+	}
 }
 }
-
-
-var testOne = {name: "Tammy", age: 100};
-var testTwo = {name: "Jack", age: 18};
-
-toArray(testOne, testTwo);
-detectMatch(toArray(testOne, testTwo));
 
 
 
@@ -109,7 +87,12 @@ detectMatch(toArray(testOne, testTwo));
 // findWord(['mint', 'gum', 'lollipop']);
 // findWord(['pizza', 'chocolate', 'muffins']);
 // DRIVER CODE (RELEASE 1)
-
-
+// var firstObj = {name: 'Kyrene', age: 10};
+// var secondObj = {name: 'Kyrene', age:21};
+// console.log(findMatch(firstObj, secondObj));
+//
+// var nextObj = {name: 'Max', age: 10};
+// var anotherObj = {name: 'Kyrene', age: 21}
+// console.log(findMatch(nextObj, anotherObj));
 
 // DRIVER CODE (RELEASE 2)
