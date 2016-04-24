@@ -22,5 +22,34 @@ user_id     first_name  last_name   business_id  name         stars       commen
 ========================
 -Choose to just view the user’s names, the business name, the star rating and the comment
 
+sqlite> SELECT 
+   ...> users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment
+   ...> FROM 
+   ...> reviews
+   ...> LEFT JOIN users ON users.id = user_id 
+   ...> LEFT JOIN businesses ON businesses.id = business_id;
 
+first_name  last_name   name         stars       comment       
+----------  ----------  -----------  ----------  --------------
+Holly       Berry       Sushi World  4           Love the food!
+Denzel      George      The Beagle   1           Boooring!     
+Holly       Berry       Lotus Yoga   5           Great workout!
+Angela      Jolie       Amir's Towi  5           Amazing staff 
+Bradford    Pitt        The Beagle   3           Eh, average 
+
+========================
+-View the data of all three tables for just one particular business
+
+sqlite> SELECT 
+   ...> reviews.user_id, users.first_name, users.last_name, reviews.business_id, businesses.name, reviews.stars, reviews.comment
+   ...> FROM
+   ...> reviews
+   ...> LEFT JOIN users ON users.id = user_id
+   ...> LEFT JOIN businesses ON businesses.id = business_id
+   ...> WHERE businesses.id IS 3;
+
+user_id     first_name  last_name   business_id  name                  stars       comment   
+----------  ----------  ----------  -----------  --------------------  ----------  ----------
+2           Denzel      George      3            The Beagle Nightclub  1           Boooring! 
+3           Bradford    Pitt        3            The Beagle Nightclub  3           Eh, average  
  
