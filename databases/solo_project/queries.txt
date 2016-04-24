@@ -1,0 +1,114 @@
+*note: edit display mode before executing queries
+sqlite> .header on
+sqlite> .mode column
+=========================
+1. Display the information in one table
+
+sqlite> SELECT * FROM menu;
+
+id          item       
+----------  -----------
+1           iced coffee
+2           green tea  
+3           cappuccino 
+4           latte
+=========================
+2. Update an item that meets some condition
+
+Before update
+
+sqlite> SELECT * FROM customer;
+
+id          name        menu_id     price     
+----------  ----------  ----------  ----------
+1           Mitch       1           2.25      
+2           Zoe         4           3.15      
+3           Byron       2           2.05      
+4           Jade        3           3.89 
+
+After update 
+
+sqlite> UPDATE customer SET price = 2.75 WHERE id = 1;
+
+id          name        menu_id     price     
+----------  ----------  ----------  ----------
+1           Mitch       1           2.75      
+2           Zoe         4           3.15      
+3           Byron       2           2.05      
+4           Jade        3           3.89      
+5           Nick        4           3.15 
+
+=========================
+3. Display the information in both tables using one query
+
+sqlite> SELECT * FROM customer, menu WHERE menu_id = menu.id;
+
+id          name        menu_id     price       id          item       
+----------  ----------  ----------  ----------  ----------  -----------
+1           Mitch       1           2.75        1           iced coffee
+2           Zoe         4           3.15        4           latte      
+3           Byron       2           2.05        2           green tea  
+4           Jade        3           3.89        3           cappuccino 
+5           Nick        4           3.15        4           latte
+
+=========================
+4. Display a narrower selection of columns from both tables using one query 
+
+sqlite> SELECT menu.item, customer.name FROM menu JOIN customer ON customer.menu_id = menu.id;
+
+item         name      
+-----------  ----------
+iced coffee  Mitch     
+latte        Zoe       
+green tea    Byron     
+cappuccino   Jade      
+latte        Nick   
+     
+=========================
+5. Delete an item that meets some condition
+
+sqlite> DELETE FROM customer WHERE name = "Nick";
+
+id          name        menu_id     price     
+----------  ----------  ----------  ----------
+1           Mitch       1           2.75      
+2           Zoe         4           3.15      
+3           Byron       2           2.05      
+4           Jade        3           3.89 
+
+=========================
+*Try a few different joins in your database
+
+sqlite> SELECT *
+   ...> FROM menu
+   ...> CROSS JOIN customer
+   ...> where menu.id=customer.id;;
+
+id          item         id          name        menu_id     price     
+----------  -----------  ----------  ----------  ----------  ----------
+1           iced coffee  1           Mitch       1           2.75      
+2           green tea    2           Zoe         4           3.15      
+3           cappuccino   3           Byron       2           2.05      
+4           latte        4           Jade        3           3.89   
+
+
+
+sqlite> SELECT menu_id, price FROM customer INNER JOIN menu ON menu_id=menu.id;
+
+menu_id     price     
+----------  ----------
+1           2.75      
+4           3.15      
+2           2.05      
+3           3.89  
+
+
+
+sqlite> SELECT name, price FROM customer LEFT OUTER JOIN menu ON customer.id=menu.id;
+
+name        price     
+----------  ----------
+Mitch       2.75      
+Zoe         3.15      
+Byron       2.05      
+Jade        3.89  
