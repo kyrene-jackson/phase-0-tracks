@@ -1,2 +1,26 @@
-Joining 3 tables
+-Joining 3 tables
+========================
 
+sqlite> SELECT 
+   ...> reviews.user_id, users.first_name, users.last_name, reviews.business_id, businesses.name, reviews.stars, reviews.comment
+   ...> FROM
+   ...> reviews
+   ...> LEFT JOIN users ON users.id = user_id
+   ...> LEFT JOIN businesses ON businesses.id = business_id;
+
+user_id     first_name  last_name   business_id  name         stars       comment       
+----------  ----------  ----------  -----------  -----------  ----------  --------------
+4           Holly       Berry       1            Sushi World  4           Love the food!
+2           Denzel      George      3            The Beagle   1           Boooring!     
+4           Holly       Berry       2            Lotus Yoga   5           Great workout!
+1           Angela      Jolie       4            Amir's Towi  5           Amazing staff 
+3           Bradford    Pitt        3            The Beagle   3           Eh, average   
+
+
+
+
+========================
+-Choose to just view the user’s names, the business name, the star rating and the comment
+
+
+ 
