@@ -67,4 +67,48 @@ latte        Nick
 =========================
 5. Delete an item that meets some condition
 
-sqlite> 
+sqlite> DELETE FROM customer WHERE name = "Nick";
+
+id          name        menu_id     price     
+----------  ----------  ----------  ----------
+1           Mitch       1           2.75      
+2           Zoe         4           3.15      
+3           Byron       2           2.05      
+4           Jade        3           3.89 
+
+=========================
+*Try a few different joins in your database
+
+sqlite> SELECT *
+   ...> FROM menu
+   ...> CROSS JOIN customer
+   ...> where menu.id=customer.id;;
+
+id          item         id          name        menu_id     price     
+----------  -----------  ----------  ----------  ----------  ----------
+1           iced coffee  1           Mitch       1           2.75      
+2           green tea    2           Zoe         4           3.15      
+3           cappuccino   3           Byron       2           2.05      
+4           latte        4           Jade        3           3.89   
+
+
+
+sqlite> SELECT menu_id, price FROM customer INNER JOIN menu ON menu_id=menu.id;
+
+menu_id     price     
+----------  ----------
+1           2.75      
+4           3.15      
+2           2.05      
+3           3.89  
+
+
+
+sqlite> SELECT name, price FROM customer LEFT OUTER JOIN menu ON customer.id=menu.id;
+
+name        price     
+----------  ----------
+Mitch       2.75      
+Zoe         3.15      
+Byron       2.05      
+Jade        3.89  
