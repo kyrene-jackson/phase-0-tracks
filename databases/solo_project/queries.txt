@@ -41,3 +41,30 @@ id          name        menu_id     price
 =========================
 3. Display the information in both tables using one query
 
+sqlite> SELECT * FROM customer, menu WHERE menu_id = menu.id;
+
+id          name        menu_id     price       id          item       
+----------  ----------  ----------  ----------  ----------  -----------
+1           Mitch       1           2.75        1           iced coffee
+2           Zoe         4           3.15        4           latte      
+3           Byron       2           2.05        2           green tea  
+4           Jade        3           3.89        3           cappuccino 
+5           Nick        4           3.15        4           latte
+
+=========================
+4. Display a narrower selection of columns from both tables using one query 
+
+sqlite> SELECT menu.item, customer.name FROM menu JOIN customer ON customer.menu_id = menu.id;
+
+item         name      
+-----------  ----------
+iced coffee  Mitch     
+latte        Zoe       
+green tea    Byron     
+cappuccino   Jade      
+latte        Nick   
+     
+=========================
+5. Delete an item that meets some condition
+
+sqlite> 
