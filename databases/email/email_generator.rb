@@ -1,9 +1,9 @@
 # Project: Build an email program!
 # User should be able to:
 # 1. View inbox
-# 2. SELECT an email by index, email address, or date
+# 2. SELECT an email by index, email address, or subject line
 # 3. Display select email(s)
-# 4. DELETE an email by index, email address, or date
+# 4. DELETE an email by index, email address, or subject line
 # 5. Display updated inbox after a DELETE
 # ====================================================================
 # Schema Outline (many-to-many)
@@ -46,10 +46,6 @@ SQL
 # # create a contacts table (if not already created)
 # db.execute(create_contact_table)
 #
-# # add test contact
-# #db.execute("INSERT INTO contacts (name, email) VALUES ('Patty', 'patty1234@gmail.com')")
-#
-#
 # # add test method for contacts
 # def create_contact(db, name, email)
 #   db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
@@ -69,7 +65,8 @@ def create_subject_line(db, subject)
   db.execute("INSERT INTO subject_line (subject) VALUES (?)", [subject])
 end
 
+subject_types = ['Work', 'School', 'Personal']
 # test fake subject line data
 4.times do
-  create_subject_line(db, Faker::Hacker.abbreviation)
+  create_subject_line(db, subject_types.sample)
 end
