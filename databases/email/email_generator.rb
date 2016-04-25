@@ -56,30 +56,34 @@ create_inbox_table = <<-SQL
     FOREIGN KEY (subject_id) REFERENCES subject_line(id)
   )
 SQL
-
+# ====================================================================
 #Group all table methods into an array
 table_set = [create_contact_table, create_subject_line_table, create_inbox_table]
-
+# create an array of subject categories
+subject_line_type = ['Work', 'School', 'Personal']
 # execute all tables
 table_set.each do |table|
   db.execute(table)
 end
 
-def add_contact(db, name, email)
+def populate_contact(db, name, email)
   db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
 end
 
+def populate_subject_line(db, subject)
+  db.execute("INSERT INTO subject_line (subject) VALUES (?)", [subject])
+end
+
+
+
+#======DRIVER CODE===========
 4.times do
-  add_contact(db, Faker::Name.name, Faker::Internet.email)
+  populate_contact(db, Faker::Name.name, Faker::Internet.email)
+  populate_subject_line(db, subject_line_type.sample)
 end
 
 
 # ====================================================================
-# POPULATE TABLES
-# EXAMPLE
-
-
-
 
 # #   db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
 # # end
