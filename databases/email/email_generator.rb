@@ -57,10 +57,12 @@ create_inbox_table = <<-SQL
   )
 SQL
 # ====================================================================
-#Group all table methods into an array
+# group all table methods into an array
 table_set = [create_contact_table, create_subject_line_table, create_inbox_table]
+
 # create an array of subject categories
 subject_line_type = ['Work', 'School', 'Personal']
+
 # execute all tables
 table_set.each do |table|
   db.execute(table)
@@ -74,40 +76,18 @@ def populate_subject_line(db, subject)
   db.execute("INSERT INTO subject_line (subject) VALUES (?)", [subject])
 end
 
+def populate_inbox(message, contact_id, subject_id)
+  db.execute("INSERT INTO inbox (message) VALUES (?)", [message])
+end
 
 
-#======DRIVER CODE===========
+
+#======DRIVER CODE====================================================
 4.times do
   populate_contact(db, Faker::Name.name, Faker::Internet.email)
   populate_subject_line(db, subject_line_type.sample)
+  populate_inbox(db, Faker::Hacker.say_something_smart)
 end
 
 
 # ====================================================================
-
-# #   db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
-# # end
-# # test create_contact method using fake name and email data
-# 4.times do
-#   create_contact(db, Faker::Name.name, Faker::Internet.email)
-# end
-# ====================================================================
-# SUBJECT LINE
-
-# # create subject line table (if not already created)
-# db.execute(create_subject_line_table)
-#
-# # test method for subject line
-# def create_subject_line(db, subject)
-#   db.execute("INSERT INTO subject_line (subject) VALUES (?)", [subject])
-# end
-#
-# subject_types = ['Work', 'School', 'Personal']
-# # test fake subject line data
-# 4.times do
-#   create_subject_line(db, subject_types.sample)
-# end
-# ====================================================================
-# INBOX
-
-#create an INBOX table (if not already created)
