@@ -11,12 +11,11 @@
 # -----------------             -----------------           -----------------
 # id(integer primary key)      id(integer primary key)      id(integer primary key)
 # -----------------             -----------------           -----------------
-# name (varchar)                message (varchar)             data(date)
+# name (varchar)                message (varchar)           date(date)
 # -----------------             -----------------
 # email (varchar)                contact_id(int)
 # -----------------             -----------------
 #                                 date_id(int)
-
 # ====================================================================
 
 # require gems
@@ -26,4 +25,14 @@ require 'faker'
 # create SQLite3 database
 db = SQLite3::Database.new("emails.db")
 
-# create
+# set contact table delimiter
+create_contact_table = <<-SQL
+  CREATE TABLE IF NOT EXISTS contacts(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255)
+  )
+SQL
+
+# create a contacts table (if not already created)
+db.execute(create_contact_table)
