@@ -38,4 +38,14 @@ SQL
 db.execute(create_contact_table)
 
 # add test contact
-db.execute("INSERT INTO contacts (name, email) VALUES ('Patty', 'patty1234@gmail.com')")
+#db.execute("INSERT INTO contacts (name, email) VALUES ('Patty', 'patty1234@gmail.com')")
+
+
+# add test method
+def create_contact(db, name, email)
+  db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
+end
+
+4.times do
+  create_contact(db, Faker::Name.name, Faker::Internet.email)
+end
