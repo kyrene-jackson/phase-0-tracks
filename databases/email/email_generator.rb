@@ -36,3 +36,6 @@ SQL
 
 # create a contacts table (if not already created)
 db.execute(create_contact_table)
+
+# add test contact
+db.execute("INSERT INTO contacts (name, email) VALUES ('Patty', 'patty1234@gmail.com')")
