@@ -15,7 +15,7 @@
 # -----------------             -----------------
 # email (varchar)                contact_id(int)
 # -----------------             -----------------
-#                                 subject_id(int)
+#                                subject_id(int)
 # ====================================================================
 # DONT TOUCH
 # require gems
@@ -25,8 +25,7 @@ require 'faker'
 # create SQLite3 database
 db = SQLite3::Database.new("emails.db")
 # ====================================================================
-# TEST AREA
-
+# DELIMITERS and METHODS
 
 # set contact table delimiter
 create_contact_table = <<-SQL
@@ -37,7 +36,7 @@ create_contact_table = <<-SQL
   )
 SQL
 
-# set subject table delimiter
+# set subject line table delimiter
 create_subject_line_table = <<-SQL
   CREATE TABLE IF NOT EXISTS subject_line(
     id INTEGER PRIMARY KEY,
@@ -50,15 +49,16 @@ create_inbox_table = <<-SQL
   CREATE TABLE IF NOT EXISTS inbox(
     id INTEGER PRIMARY KEY,
     message VARCHAR(255),
-    name VARCHAR(255)
+    name VARCHAR(255),
+    contact_id INT,
+    subject_id INT,
+    FOREIGN KEY (contact_id) REFERENCES contacts(id),
+    FOREIGN KEY (subject_id) REFERENCES subject_line(id)
   )
 SQL
 
 #Group all table methods into an array
 table_set = [create_contact_table, create_subject_line_table, create_inbox_table]
-
-
-
 
 # execute all tables
 table_set.each do |table|
