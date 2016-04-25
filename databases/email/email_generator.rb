@@ -64,5 +64,12 @@ SQL
 # create subject line table (if not already created)
 db.execute(create_subject_line_table)
 
-# add test subject line
-db.execute("INSERT INTO subject_line (subject) VALUES ('LOL!')")
+# test method for subject line
+def create_subject_line(db, subject)
+  db.execute("INSERT INTO subject_line (subject) VALUES (?)", [subject])
+end
+
+# test fake subject line data
+4.times do
+  create_subject_line(db, Faker::Hacker.abbreviation)
+end
