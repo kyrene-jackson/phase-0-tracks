@@ -6,7 +6,7 @@
 # 4. DELETE an email by index, email address, or subject line
 # 5. Display updated inbox after a DELETE
 # ====================================================================
-# Schema Outline (many-to-many)
+# Schema Outline
 # Table 1: Contacts               Table 2: Inbox           Table 3: Subject Line
 # -----------------             -----------------           -----------------
 # id(integer primary key)      id(integer primary key)      id(integer primary key)
@@ -65,18 +65,24 @@ table_set.each do |table|
   db.execute(table)
 end
 
+def add_contact(db, name, email)
+  db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
+end
+
+4.times do
+  add_contact(db, Faker::Name.name, Faker::Internet.email)
+end
 
 
-#create_contact(db, Faker::Name.name, Faker::Internet.email)
 # ====================================================================
-# # CONTACTS
-# # create a contacts table (if not already created)
-# db.execute(create_contact_table)
-#
-# # add test method for contacts
-# def create_contact(db, name, email)
-#   db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
-# end
+# POPULATE TABLES
+# EXAMPLE
+
+
+
+
+# #   db.execute("INSERT INTO contacts (name, email) VALUES (?, ?)", [name, email])
+# # end
 # # test create_contact method using fake name and email data
 # 4.times do
 #   create_contact(db, Faker::Name.name, Faker::Internet.email)
