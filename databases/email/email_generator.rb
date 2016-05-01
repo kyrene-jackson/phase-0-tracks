@@ -76,18 +76,33 @@ def populate_subject_line(db, subject)
   db.execute("INSERT INTO subject_line (subject) VALUES (?)", [subject])
 end
 
-def populate_inbox(message, contact_id, subject_id)
+def populate_inbox(db, message)
   db.execute("INSERT INTO inbox (message) VALUES (?)", [message])
 end
 
 
+# ====================================================================
+# iterate through fields and print template
+
 
 #======DRIVER CODE====================================================
-4.times do
-  populate_contact(db, Faker::Name.name, Faker::Internet.email)
-  populate_subject_line(db, subject_line_type.sample)
-  populate_inbox(db, Faker::Hacker.say_something_smart)
-end
+populate_contact(db, Faker::Name.name, Faker::Internet.email)
+populate_subject_line(db, subject_line_type.sample)
+populate_inbox(db, Faker::Hacker.say_something_smart)
 
+# =====EMAIL TEMPLATES====================================================
+# For work:
+# Just a reminder to everyone, we have a live demo in 2 weeks. Performance reviews will also be held that week.
+# - <faker name>
+# - <faker title>
 
-# ====================================================================
+# For school:
+# Hey! I think I figured out why our program isn't working..
+# <hacker text>
+# text me if that's too confusing
+# <number>
+
+# For personal:
+# Don't forget about the party tonight!
+# It's going to be at
+# <address>
