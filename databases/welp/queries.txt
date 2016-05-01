@@ -39,7 +39,7 @@ Bradford    Pitt        The Beagle   3           Eh, average
 
 ========================
 -View the data of all three tables for just one particular business
-
+/Users/kyrene1/Documents/devbootcamp/phase-0-tracks/databases/welp/queries.txt
 sqlite> SELECT 
    ...> reviews.user_id, users.first_name, users.last_name, reviews.business_id, businesses.name, reviews.stars, reviews.comment
    ...> FROM
