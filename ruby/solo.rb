@@ -1,11 +1,11 @@
 #=======================RELEASE 0===============================
-#create wizard class
-#methods: initialize, cast spell, summon dragon, and teleport
-#attributes: name, spell type, number of casts, dragon color
-#example output:
-#cast spell output: "(Kael) casted (3) (fire) spells!"
-#summon dragon output: "(Kael) summoned a (crimson) (wyvern)!"
-#teleport: "(Kael) vanished..."
+# Create wizard class
+# Methods: initialize, cast spell, summon dragon, and teleport
+# Attributes: name, spell type, number of casts, dragon color
+# Example output:
+# Cast spell output: "(Kael) casted (3) (fire) spells!"
+# Summon dragon output: "(Kael) summoned a (crimson) (wyvern)!"
+# Teleport: "And in the blink of an eye (Kael) vanished..."
 #=======================RELEASE 1===============================
 class Wizard
   attr_accessor :name, :spell_type, :cast_number, :dragon_color
