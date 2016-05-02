@@ -78,7 +78,6 @@ puts "Welcome to Create-a-Wiz!"
 puts "Where you will be able to choose the unique characteristics"
 puts "of any number of wizards, and their dragon companions!"
 
-
 puts "How many wizards would you like to create?"
 number_of_wizards = gets.chomp.to_i
 new_game = Game.new(number_of_wizards)
