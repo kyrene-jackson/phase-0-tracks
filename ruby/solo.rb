@@ -56,7 +56,7 @@ end
 
 class Game
   attr_accessor :number
-  attr_reader :wizard_count, :final_result
+  attr_reader :final_result
   def initialize(number_of_wizards)
     @number = number_of_wizards
     @final_result = []
