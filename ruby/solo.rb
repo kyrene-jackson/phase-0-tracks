@@ -14,7 +14,7 @@
 # Teleport: "And in the blink of an eye (Kael) vanished..."
 #
 # Create Game class
-# Methods: initialize, process wizard, store wizard, done?
+# Methods: initialize, store wizard, store wizard, done?
 # Attributes: number of wizards, final result
 #
 # Program should be able to:
@@ -61,15 +61,14 @@ class Game
     @number = number_of_wizards
     @final_result = []
   end
-  def process_wizard(wizard)
+  def store_wizard(wizard)
     @final_result << wizard
-    get_wizard_count
-  end
-  def get_wizard_count
-    puts "The current count is: #{@final_result.length}"
   end
   def done?
     @number == @final_result.length
+  end
+  def show_result
+    @final_result.each { |result| p result }
   end
 end
 
@@ -79,12 +78,13 @@ puts "Welcome to Create-a-Wiz!"
 puts "Where you will be able to choose the unique characteristics"
 puts "of any number of wizards, and their dragon companions!"
 
+
 puts "How many wizards would you like to create?"
 number_of_wizards = gets.chomp.to_i
-
 new_game = Game.new(number_of_wizards)
-# BEGIN LOOP
+
 while !new_game.done? do
+  puts "-----------------"
   puts "Give this wizard a name: "
   name = gets.chomp
   puts "Enter a number, any number!"
@@ -94,30 +94,11 @@ while !new_game.done? do
   puts "What color is #{name}'s dragon companion?"
   dragon_color = gets.chomp.downcase
   wizard = Wizard.new(name, cast_number, spell_class, dragon_color)
-  new_game.process_wizard(wizard)
+  wizard.show_off
+  new_game.store_wizard(wizard)
 end
 
-
-
-
-
-
-
-
-
-
-
-# user wants to make 2 wizards
-# start Game game with 2 rounds
-# game will set number of rounds to 2,
-# game will create storage array,
-# UNTIL GAME IS DONE....
-# prompt user for attributes for a new wizard
-# take that wizard and pass it through next wizard
-  # next wizard will TAKE THE CURRENT WIZARD and store it
-  # game should return the length of the array
-  # game should check to see if it should continue or stop
-
-
-# puts "A history of instances created:"
-# result_array.each { |result| p result }
+puts "-----------------"
+puts "History of wizards created: "
+new_game.show_result
+puts "Thanks for playing!"
