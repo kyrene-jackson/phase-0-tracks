@@ -1,44 +1,47 @@
-#=======================RELEASE 0===============================
+# 6.4 Solo Challenge: Designing and Implementing a class.
+# Programmed By: Kyrene Jackson
+# A program that creates and customizes wizards according to
+# user input!
+#=======================PROGRAM DESIGN===========================
 # Create wizard class
 # Methods: initialize, cast spell, summon dragon, and teleport
 # Attributes: name, spell type, number of casts, dragon color
+#
 # Example output:
 # Cast spell output: "(Kael) casted (3) (fire) spells!"
 # Summon dragon output: "(Kael) summoned a (crimson) (wyvern)!"
 # Teleport: "And in the blink of an eye (Kael) vanished..."
-#=======================RELEASE 1===============================
+#
+# Program should be able to:
+# Prompt user for each attribute, use input to print results of
+# each method in logical sentences, store each wizard into
+# a data structure, allow the user to make as many wizards as
+# they want, and print history of all instances before
+# exiting program.
+#=======================WIZARD CLASS=============================
 class Wizard
   attr_accessor :name, :spell_type, :cast_number, :dragon_color
   attr_reader :dragon_type
   def initialize(name, cast_number, spell_type, dragon_color)
-    puts "Initializing new wizard..."
+    puts "Conjuring new wizard..."
     @name = name
     @cast_number = cast_number
     @spell_type = spell_type
     @dragon_color = dragon_color
     @dragon_type = ["hydra", "drake", "wyvern"].sample
   end
-  def cast_spell(number, spell_type)
-    puts "Woah! #{name} casted #{number} #{spell_type} spell(s)!"
+  def cast_spell
+    puts "Woah! #{@name} casted #{@cast_number} #{@spell_type} spell(s)!"
   end
-  def summon_dragon(dragon_color)
-    puts "#{name} summoned a #{dragon_color} #{dragon_type}!"
+  def summon_dragon
+    puts "#{@name} summoned a #{@dragon_color} #{@dragon_type}!"
   end
   def teleport
     puts "And in the blink of an eye #{name} vanished..."
   end
 end
-#=======================RELEASE 2===============================
-#create empty array for storing instances
-#prompt user for each attribute
-#note: dragon_type set as an attr_reader for rubric requirements
-#convert user input to proper data type
-#assign values to instance variables/attributes.
-#call class methods on new data, then print them in logical sentences
-#add values to result array
-#then ask if the user wants to continue or stop
-#if no -> iterate through array and list of attributes for each instance
-#if yes -> restart loop
+#=======================USER INTERFACE============================
+
 result_array = []
 wants_to_continue = "yes"
 puts "Welcome to Create-a-Wiz!"
