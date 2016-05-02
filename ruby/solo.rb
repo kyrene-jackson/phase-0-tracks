@@ -21,7 +21,7 @@
 #=======================WIZARD CLASS=============================
 class Wizard
   attr_accessor :name, :spell_class, :cast_number, :dragon_color
-  attr_reader :dragon_type, :number_of_wizards
+  attr_reader :dragon_type
   def initialize(name, cast_number, spell_class, dragon_color)
     puts "Conjuring new wizard..."
     @name = name
@@ -43,43 +43,102 @@ class Wizard
   end
 end
 #=======================USER INTERFACE============================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#=============
+
+# Create-a-Wiz methods
 class CreateAWiz
-  attr_accessor :number_of_wizards
-  attr_reader :current_wizard_count, :all_wizards
-  def initialize(number_of_wizards_to_create)
-    @number_of_wizards = number_of_wizards_to_create
+  attr_accessor :all_wizards, :number
+  attr_reader :wizard_count
+  def initialize(number_of_wizards)
+    @number = number_of_wizards
     @all_wizards = []
-    @current_wizard_count = @all_wizards.size
   end
-  def store_wizard(wizard)
-    @all_wizards << wizard
+  def next_wizard(wizard)
+    store_wizard
+    get_wizard_count
   end
-  def done?
-    @current_wizard_count > @number_of_wizards
-  end
+def store_wizard
+  @all_wizards << @wizard
 end
-#=============================
+def get_wizard_count
+  puts "The current count is: #{@all_wizards.length}"
+end
+def done?
+  @number >= @all_wizards.length
+end
+end
+
+
+#===================
+# Initialize new instance using input
+
+
+
 # intructions
 puts "Welcome to Create-a-Wiz!"
 puts "Where you will be able to choose the unique characteristics"
 puts "of any number of wizards, and their dragon companions!"
 
+
+#===========================================================
+# Ask user how many wizards they want to make
+puts "First off, how many wizards would you like to make?"
+number_of_wizards = gets.chomp.to_i
+# start game using that number
+new_game = CreateAWiz.new(number_of_wizards)
+# BEGIN LOOP
+while !new_game.done? do
+  puts "Give this wizard a name: "
+  name = gets.chomp
+  puts "Enter a number, any number!"
+  cast_number = gets.chomp.to_i
+  puts "What is #{name}'s favorite spell class? (e.g. fire)"
+  spell_class = gets.chomp.downcase
+  puts "What color is #{name}'s dragon companion?"
+  dragon_color = gets.chomp.downcase
+  # use input to create wizard
+  wizard = Wizard.new(name, cast_number, spell_class, dragon_color)
+  new_game.next_wizard(wizard)
+end
+
+
+
+
+
+
+
+
+
+
+# user wants to make 2 wizards
+# start CreateAWiz game with 2 rounds
+# game will set number of rounds to 2,
+# game will create storage array,
+# UNTIL GAME IS DONE....
+# prompt user for attributes for a new wizard
+# take that wizard and pass it through next wizard
+  # next wizard will TAKE THE CURRENT WIZARD and store it
+  # game should return the length of the array
+  # game should check to see if it should continue or stop
+
+
+
+
 # set variables
-puts "Give this wizard a name: "
-name = gets.chomp
-puts "Enter a number, any number!"
-cast_number = gets.chomp.to_i
-puts "What is #{name}'s favorite spell class? (e.g. fire)"
-spell_class = gets.chomp.downcase
-puts "What color is #{name}'s dragon companion?"
-dragon_color = gets.chomp.downcase
-
-
-# Initialize new instance using input
-wizard = Wizard.new(name, cast_number, spell_class, dragon_color)
-CreateAWiz.new(wizard)
-
-
 
 
 
