@@ -62,17 +62,11 @@ class Game
     @final_result = []
   end
   def process_wizard(wizard)
-    store_wizard
-    get_wizard_count
-  end
-  def store_wizard
     @final_result << wizard
+    get_wizard_count
   end
   def get_wizard_count
     puts "The current count is: #{@final_result.length}"
-  end
-  def show_results
-    print @final_result
   end
   def done?
     @number == @final_result.length
@@ -100,10 +94,9 @@ while !new_game.done? do
   puts "What color is #{name}'s dragon companion?"
   dragon_color = gets.chomp.downcase
   wizard = Wizard.new(name, cast_number, spell_class, dragon_color)
-  wizard.show_off
-  new_game.next_wizard(wizard)
+  new_game.process_wizard(wizard)
 end
-new_game.show_results
+
 
 
 
@@ -125,24 +118,6 @@ new_game.show_results
   # game should return the length of the array
   # game should check to see if it should continue or stop
 
-
-
-
-# set variables
-
-
-
-
-
-
-
-
-
-
-
-# new_wizard.cast_spell
-# new_wizard.summon_dragon
-# new_wizard.teleport
 
 # puts "A history of instances created:"
 # result_array.each { |result| p result }
