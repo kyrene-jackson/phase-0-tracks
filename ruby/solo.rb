@@ -61,8 +61,8 @@ end
 
 # Create-a-Wiz methods
 class CreateAWiz
-  attr_accessor :all_wizards, :number
-  attr_reader :wizard_count
+  attr_accessor :number
+  attr_reader :wizard_count, :all_wizards
   def initialize(number_of_wizards)
     @number = number_of_wizards
     @all_wizards = []
@@ -100,21 +100,20 @@ puts "First off, how many wizards would you like to make?"
 number_of_wizards = gets.chomp.to_i
 # start game using that number
 new_game = CreateAWiz.new(number_of_wizards)
-puts new_game.done?
 # BEGIN LOOP
-# while !new_game.done? do
-#   puts "Give this wizard a name: "
-#   name = gets.chomp
-#   puts "Enter a number, any number!"
-#   cast_number = gets.chomp.to_i
-#   puts "What is #{name}'s favorite spell class? (e.g. fire)"
-#   spell_class = gets.chomp.downcase
-#   puts "What color is #{name}'s dragon companion?"
-#   dragon_color = gets.chomp.downcase
-#   # use input to create wizard
-#   wizard = Wizard.new(name, cast_number, spell_class, dragon_color)
-#   new_game.next_wizard(wizard)
-# end
+while !new_game.done? do
+  puts "Give this wizard a name: "
+  name = gets.chomp
+  puts "Enter a number, any number!"
+  cast_number = gets.chomp.to_i
+  puts "What is #{name}'s favorite spell class? (e.g. fire)"
+  spell_class = gets.chomp.downcase
+  puts "What color is #{name}'s dragon companion?"
+  dragon_color = gets.chomp.downcase
+  # use input to create wizard
+  wizard = Wizard.new(name, cast_number, spell_class, dragon_color)
+  new_game.next_wizard(wizard)
+end
 
 
 
