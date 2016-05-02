@@ -14,7 +14,7 @@
 # Teleport: "And in the blink of an eye (Kael) vanished..."
 #
 # Create Game class
-# Methods: initialize, store wizard, store wizard, done?
+# Methods: initialize, store wizard, done?
 # Attributes: number of wizards, final result
 #
 # Program should be able to:
