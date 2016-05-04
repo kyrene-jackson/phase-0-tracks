@@ -7,23 +7,33 @@
 
 # BUSINESS LOGIC
 
-def add_room_to_house(house, room_name)
-  house[room_name] = []
+def add_room_to_house!(house, room_name)
+  if house.keys.length == 5
+    false
+  else
+    house[room_name] = []
+    true
+  end
 end
 
 house = {}
+
+# USER INTERFACE
+
+def print_house(house)
+  p house
+end
+
+
 
 
 
 # TEST CODE
 
-rooms = ["Living room", "bedroom", "bathroom", "kitchen"]
+rooms = ["Living room", "bedroom", "bathroom", "kitchen", "bedroom 2", "bedroom 3"]
 
 rooms.each do |room|
-  add_room_to_house(house, room)
+  add_room_to_house!(house, room)
 end
 
-p house
-
-
-# USER INTERFACE
+print_house(house)
