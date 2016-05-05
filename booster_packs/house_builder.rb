@@ -27,8 +27,8 @@ house = {}
 def print_house(house)
   puts "--------------"
   puts "Current house configuration"
-  house.each do |room_name, items|
-    puts "#{room_name}: #{items}"
+  house.keys.each_with_index do |room_name, index|
+    puts "#{index} - #{room_name}: #{house[room_name]}"
   end
   puts "-------------- "
 end
@@ -49,7 +49,23 @@ while can_add_rooms
     print_house(house)
 end
 
-
+# Let the user add items to rooms
+# In an infinite loop:
+loop do
+  # Ask the user for the number of the room they want to add
+  # items to.
+  puts "Enter the number of the room to add an item to (or type 'done'):"
+  inputted_idx = gets.chomp
+  # If the user is done, break.
+  break if inputted_idx == 'done'
+  # Otherwise, add the item to the room
+  room_idx = inputted_idx.to_i
+  puts "Enter the item to add : "
+  item_to_add = gets.chomp
+  add_item_to_room!(house, house.keys[room_idx], item_to_add)
+  # Print the new house configuration
+  print_house(house)
+end
 #============= TEST CODE ===================
 
 # rooms = ["Living room", "bedroom", "bathroom", "kitchen", "bedroom 2"]
