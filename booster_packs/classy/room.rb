@@ -33,11 +33,3 @@ class Room
     "#{@name} (#{@width} x #{@length})"
   end
 end
-
-living_room = Room.new("Living room", 20, 35)
-puts living_room
-piano = Item.new("Piano", "black", 10000)
-box = Item.new("cardboard box", "brown", 0)
-living_room.items << piano
-living_room.items << box
-puts living_room.total_value
