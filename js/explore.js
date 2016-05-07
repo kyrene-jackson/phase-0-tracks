@@ -2,7 +2,7 @@
 // Write a JavaScript function that
 // takes a string as a parameter,
 // and reverses the string.
-
+//===============================================
 // Declare function: 'reverse'
 // that takes a word as a parameter.
 // Store word in a variable.
@@ -11,3 +11,4 @@
 // When finished, add each letter together,
 // to form a single word.
 // Print final word.
+//===============================================
