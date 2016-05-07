@@ -5,21 +5,24 @@
 //===============================================
 // Declare function: 'reverse'
 // that takes a word as a parameter.
-// Begin decrementing WHILE loop
+// Define an empty variable to store
+// the final word.
+// Begin WHILE loop starting from last letter:
   // set counter equal to the length of the
   // input string, minus one.
-  // Define an empty variable to store
-  // the final word.
   // Condition: WHILE counter is GREATER THAN
   // OR EQUAL TO 0.
   // Add the letter to the results variable.
   // Move down one letter.
-// After loop is complete 
-// Print final word.
+// END loop
+// PRINT results variable
 //===============================================
 
-var str = "Kyrene";
-
-for (var i = str.length; i >= 0; i--) {
-	console.log(str[i]);
+function reverse(str) {
+  finalResult = ""
+  for (var i = str.length - 1; i >= 0; finalResult += str[i--]) {
+  }
+  console.log(finalResult);
 }
+
+reverse("JavaScript");
