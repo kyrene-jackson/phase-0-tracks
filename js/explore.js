@@ -2,7 +2,7 @@
 // Write a JavaScript function that
 // takes a string as a parameter,
 // and reverses the string.
-//===============================================
+//==============================================
 // Declare function: 'reverse'
 // that takes a word as a parameter.
 // Define an empty variable to store
@@ -16,7 +16,7 @@
   // Move down one letter.
 // END loop
 // PRINT results variable
-//===============================================
+//=============================================
 
 function reverse(str) {
   finalResult = ""
@@ -25,4 +25,7 @@ function reverse(str) {
   console.log(finalResult);
 }
 
-reverse("JavaScript");
+//==============DRIVER CODE====================
+
+testWord = reverse("JavaScript");
+anotherTest = reverse("Reverse this string")
