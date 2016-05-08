@@ -25,22 +25,20 @@ class VirusPredictor
 
   private
   # Takes population_density, population and state values and based off the population_density, calculates the number_of_deaths and assigns # its value to the integer <= the resulting float.
+  # predicted deaths is solely based on population density
   def predicted_deaths
-    # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+    # Release 8: Refactor.
+    # Take averages of pop. density and number_of_deaths formula 
+    # to reduce amount of conditionals.
+    if @population_density >= 175
+      number_of_deaths = (@population * 0.35).floor
+    elsif
+      @population_density >= 75
+      number_of_deaths= (@population * 0.15).floor
     else
       number_of_deaths = (@population * 0.05).floor
     end
-    #
-    # if @population_density >= 175
-    #   number_of_deaths = (@population * 0.35).floor
+
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
@@ -65,6 +63,8 @@ class VirusPredictor
 
 end
 
+# Original methods before refactor:
+
 # if @population_density >= 200
 #   speed += 0.5
 # elsif @population_density >= 150
@@ -75,6 +75,18 @@ end
 #   speed += 2
 # else
 #   speed += 2.5
+# end
+
+# if @population_density >= 200
+#   number_of_deaths = (@population * 0.4).floor
+# elsif @population_density >= 150
+#   number_of_deaths = (@population * 0.3).floor
+# elsif @population_density >= 100
+#   number_of_deaths = (@population * 0.2).floor
+# elsif @population_density >= 50
+#   number_of_deaths = (@population * 0.1).floor
+# else
+#   number_of_deaths = (@population * 0.05).floor
 # end
 
 
