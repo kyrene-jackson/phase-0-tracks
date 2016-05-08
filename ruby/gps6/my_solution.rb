@@ -6,6 +6,7 @@
 # EXPLANATION OF require_relative
 # require_relative tries to load the data from the file name given as a string (relative to where the current file is).
 # Whereas require would require the full file path.
+#=======================================================================
 
 require_relative 'state_data'
 
@@ -63,6 +64,7 @@ class VirusPredictor
 
 end
 
+#=======================================================================
 # Original methods before refactor:
 
 # if @population_density >= 200
@@ -91,9 +93,7 @@ end
 
 
 #=======================================================================
-
 # DRIVER CODE
-#initialize VirusPredictor for each state
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
