@@ -1,6 +1,6 @@
-// Declare 2 seperate arrays:
-// 1. Array of four colors
-// 2. Array of four names that you might give a horse
+// declare two seperate arrays:
+// - array of four colors
+// - array of four names that you might give a horse
 // Write additional code that adds another color to the colors array and another horse name to the horses array
 // Add code that will use your two arrays to create an object.
 // The keys of your object should be horse names, and the values should be colors.
@@ -47,6 +47,8 @@ var firstCar = new Car("Black", 199, true);
 console.log(firstCar);
 console.log("Lets test out the horn..");
 firstCar.honk();
+
+console.log("------------------------")
 
 console.log("Lets buy a used car...");
 secondCar = new Car("Red", 210, false);
