@@ -28,7 +28,7 @@ class VirusPredictor
   # predicted deaths is solely based on population density
   def predicted_deaths
     # Release 8: Refactor.
-    # Take averages of pop. density and number_of_deaths formula 
+    # Take averages of pop. density and number_of_deaths formula
     # to reduce amount of conditionals.
     if @population_density >= 175
       number_of_deaths = (@population * 0.35).floor
@@ -39,7 +39,7 @@ class VirusPredictor
       number_of_deaths = (@population * 0.05).floor
     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    print "#{@state} will lose about #{number_of_deaths} people in this outbreak"
 
   end
 
@@ -57,7 +57,7 @@ class VirusPredictor
       speed += 1.75
     end
 
-    puts " and will spread across the state in #{speed} months.\n\n"
+    puts " and will spread across the state in about #{speed} months.\n\n"
 
   end
 
