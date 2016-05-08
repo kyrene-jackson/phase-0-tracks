@@ -6,6 +6,7 @@
 # EXPLANATION OF require_relative
 # require_relative tries to load the data from the file name given as a string (relative to where the current file is).
 # Whereas require would require the full file path.
+#=======================================================================
 
 require_relative 'state_data'
 
@@ -25,54 +26,74 @@ class VirusPredictor
 
   private
   # Takes population_density, population and state values and based off the population_density, calculates the number_of_deaths and assigns # its value to the integer <= the resulting float.
+  # predicted deaths is solely based on population density
   def predicted_deaths
-    # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+    # Release 8: Refactor.
+    # Take averages of pop. density and number_of_deaths formula
+    # to reduce amount of conditionals.
+    if @population_density >= 175
+      number_of_deaths = (@population * 0.35).floor
+    elsif
+      @population_density >= 75
+      number_of_deaths= (@population * 0.15).floor
     else
       number_of_deaths = (@population * 0.05).floor
     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    print "#{@state} will lose about #{number_of_deaths} people in this outbreak"
 
   end
 
-  #Takes population_density and state values and based on population_density, calculates the speed of the spread of the disease.
+  #Takes population_density and state values and based on population_density, calculates the speed of the spread of the disease in months.
   def speed_of_spread
-     #in months
      # We are still perfecting our formula here. The speed is also affected
      # by additional factors we haven't added into this functionality.
     speed = 0.0
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
+    # Release 8: Refactor.
+    # Take averages of pop. density and speeds
+    # to reduce amount of conditionals.
+    if @population_density >= 175
+      speed += 0.75
     else
-      speed += 2.5
+      speed += 1.75
     end
 
-    puts " and will spread across the state in #{speed} months.\n\n"
+    puts " and will spread across the state in about #{speed} months.\n\n"
 
   end
 
 end
 
-#note: still working on release 8
+#=======================================================================
+# Original methods before refactor:
+
+# if @population_density >= 200
+#   speed += 0.5
+# elsif @population_density >= 150
+#   speed += 1
+# elsif @population_density >= 100
+#   speed += 1.5
+# elsif @population_density >= 50
+#   speed += 2
+# else
+#   speed += 2.5
+# end
+
+# if @population_density >= 200
+#   number_of_deaths = (@population * 0.4).floor
+# elsif @population_density >= 150
+#   number_of_deaths = (@population * 0.3).floor
+# elsif @population_density >= 100
+#   number_of_deaths = (@population * 0.2).floor
+# elsif @population_density >= 50
+#   number_of_deaths = (@population * 0.1).floor
+# else
+#   number_of_deaths = (@population * 0.05).floor
+# end
+
 
 #=======================================================================
-
 # DRIVER CODE
-#initialize VirusPredictor for each state
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
