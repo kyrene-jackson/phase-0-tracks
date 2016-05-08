@@ -38,33 +38,22 @@ class VirusPredictor
     else
       number_of_deaths = (@population * 0.05).floor
     end
-
+    #
+    # if @population_density >= 175
+    #   number_of_deaths = (@population * 0.35).floor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
-  #Takes population_density and state values and based on population_density, calculates the speed of the spread of the disease.
+  #Takes population_density and state values and based on population_density, calculates the speed of the spread of the disease in months.
   def speed_of_spread
-     #in months
      # We are still perfecting our formula here. The speed is also affected
      # by additional factors we haven't added into this functionality.
     speed = 0.0
-    # if @population_density >= 200
-    #   speed += 0.5
-    # elsif @population_density >= 150
-    #   speed += 1
-    # elsif @population_density >= 100
-    #   speed += 1.5
-    # elsif @population_density >= 50
-    #   speed += 2
-    # else
-    #   speed += 2.5
-    # end
-
     # Release 8: Refactor.
     # Take averages of pop. density and speeds
     # to reduce amount of conditionals.
-    if population_density >= 175
+    if @population_density >= 175
       speed += 0.75
     else
       speed += 1.75
@@ -76,6 +65,17 @@ class VirusPredictor
 
 end
 
+# if @population_density >= 200
+#   speed += 0.5
+# elsif @population_density >= 150
+#   speed += 1
+# elsif @population_density >= 100
+#   speed += 1.5
+# elsif @population_density >= 50
+#   speed += 2
+# else
+#   speed += 2.5
+# end
 
 
 #=======================================================================
