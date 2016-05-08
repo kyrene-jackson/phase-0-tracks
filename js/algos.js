@@ -3,7 +3,7 @@ RELEASE 0: FIND THE LONGEST WORD
 write a function that takes an array of words or phrases,
 and returns the longest word in the array.
 example input: ['mint', 'gum', 'lollipop']
-example output: 'lollipop'
+function should return: 'lollipop'
 step 1: create a new function that takes a parameter
 step 2: create a 'longestWord' variable that holds the longest string
 step 3: create a variable 'currentWord' that will hold the current string in the array
@@ -15,10 +15,11 @@ step 4: FOR the length of the input array TIMES:
 step 9: Once last string is evaluated, print 'longestWord'
 */
 
-var longestWord = null;
-var currentWord = null;
+
 
 function findWord(array) {
+  var longestWord = null;
+  var currentWord = null;
   for (var i = 0; i < array.length; i++) {
   longestWord = ""
   currentWord = array[i]
