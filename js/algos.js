@@ -77,9 +77,10 @@ for (var i = 0; i < setOne.length; i++) {
 // I have a few ideas on how I could make the function
 // more conscise but I can't seem to implement any
 // without still having to reassign the keys to a
-// new variable. Also so far it looks like my loop
+// new variable (thus taking up more memory).
+// Also so far it looks like my loop
 // will only work if the match is found in the first
-// checked pair. Still a work in progress!
+// checked pair. Still a work in progress! :)
 
 /*======RELEASE 2: GENERATE RANDOM TEST DATA==========
 
