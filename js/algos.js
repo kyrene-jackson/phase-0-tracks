@@ -136,10 +136,11 @@ function fillArr(number){
 // and passes array through findWord function. (Ten times)
 
 function tenObj(number) {
-  var test = fillArr(number);
-  console.log("The current array is: " + test);
-  findWord(test);
-
+  for (var i = 0; i < 10; i++) {
+    var test = fillArr(number);
+    console.log("The current array is: " + test);
+    findWord(test);
+  }
 }
 
-tenObj(2)
+tenObj(3)
