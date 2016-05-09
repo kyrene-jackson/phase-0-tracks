@@ -101,22 +101,18 @@ step 8: store into array
 step 9: continue until array length is equal to input number
 
 note: use array literal to create new array!
-
-
 */
-// function randomData(number) {
-// 	finalArr = new Array(number);
-// 	var alphabet = "abcdefghijklmnopqrstuvwxyz";
-// 	var letters = alphabet.split('');
-// 	var newWord = " ";
-// 	for (var i = 0; i < number; i++) {
-// 		var strLength = Math.floor(Math.random() * 10) + 1;
-// 		newWord = letters[i]
-// 		finalWord = letters.toString("");
-// 		finalArr.push(newWord);
-// 		console.log(finalArr);
-// 	}
-// }
+
+function makeWord() {
+var text = "";
+var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+for (var i = 0; i < 5; i++)
+	text += possible.charAt( Math.floor(Math.random() * possible.length));
+	return text;
+}
+
+console.log(makeWord());
 
 /*=================DRIVER CODE=================*/
 // (RELEASE 0)
