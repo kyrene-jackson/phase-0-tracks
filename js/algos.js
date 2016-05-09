@@ -31,12 +31,12 @@ function findWord(array) {
 }
 
 /*====RELEASE 1: FIND A KEY-VALUE MATCH========
-RELEASE 1: FIND A KEY-VALUE MATCH
+
 write a function that takes two objects and checks to see
 if the objects share at least one key-value pair.
 example input: {name: "Steven", age: 54} and {name: "Tamir", age: 54}
-example return value: true
-if no pairs match the function should RETURN false.
+  -This example should RETURN true
+  -Otherwise it would RETURN false.
 keep in mind that the two objects may not even have any of the same keys.
 
 note: algorithim assumes both input objects have 2 key-value pairs.
@@ -51,7 +51,7 @@ step 7: iterate through both arrays, comparing each value
 step 8: IF a value from both arrays are the same DATA type and VALUE
       step 9: retrn true
       step 10: ELSE return false
-      
+
 ===================FUNCTION===================*/
 
 function findMatch(objOne, objTwo) {
@@ -72,7 +72,13 @@ for (var i = 0; i < setOne.length; i++) {
 	}
 }
 }
-
+// I know this method requires some refactoring..
+// I have a few ideas on how I could make the function
+// more conscise but I can't seem to implement any
+// without still having to reassign the keys to a
+// new variable. Also so far it looks like my loop
+// will only work if the match is found in the first
+// checked pair. Still a work in progress :)!
 /*======RELEASE 2: GENERATE RANDOM TEST DATA==========
 
 Write a function that takes an integer for length,
