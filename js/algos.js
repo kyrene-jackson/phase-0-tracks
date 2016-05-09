@@ -131,19 +131,15 @@ function fillArr(number){
 }
 
 /*=================DRIVER CODE=================*/
-// (RELEASE 0)
-// findWord(['mint', 'gum', 'lollipop']);
-// findWord(['pizza', 'chocolate', 'muffins']);
-//
-// (RELEASE 1)
-// var firstObj = {name: 'Kyrene', age: 21};
-// var secondObj = {name: 'Kyrene', age: 10};
-// console.log(findMatch(firstObj, secondObj));
-// var firstObj = {name: 'Kyrene', age: 21};
-// var secondObj = {name: 'Max', age: 10};
-// console.log(findMatch(firstObj, secondObj));
-//
-// (RELEASE 2)
-console.log(fillArr(5));
-console.log(fillArr(3));
-console.log(fillArr(2));
+
+// Add driver code that generates and prints the array
+// and passes array through findWord function. (Ten times)
+
+function tenObj(number) {
+  var test = fillArr(number);
+  console.log("The current array is: " + test);
+  findWord(test);
+
+}
+
+tenObj(2)
