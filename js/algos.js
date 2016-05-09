@@ -72,13 +72,15 @@ for (var i = 0; i < setOne.length; i++) {
 	}
 }
 }
+
 // I know this method requires some refactoring..
 // I have a few ideas on how I could make the function
 // more conscise but I can't seem to implement any
 // without still having to reassign the keys to a
 // new variable. Also so far it looks like my loop
 // will only work if the match is found in the first
-// checked pair. Still a work in progress :)!
+// checked pair. Still a work in progress!
+
 /*======RELEASE 2: GENERATE RANDOM TEST DATA==========
 
 Write a function that takes an integer for length,
@@ -98,17 +100,17 @@ step 7: join individual letters into a strings
 step 8: store into array
 step 9: continue until array length is equal to input number
 
+note: use array literal to create new array!
 
-note: Release not yet completed :(
 
 */
 // function randomData(number) {
 // 	finalArr = new Array(number);
-// 	var alphabet = "abcdefghijklmnopqrstuvwxzy";
+// 	var alphabet = "abcdefghijklmnopqrstuvwxyz";
 // 	var letters = alphabet.split('');
 // 	var newWord = " ";
 // 	for (var i = 0; i < number; i++) {
-// 		var strLength = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+// 		var strLength = Math.floor(Math.random() * 10) + 1;
 // 		newWord = letters[i]
 // 		finalWord = letters.toString("");
 // 		finalArr.push(newWord);
