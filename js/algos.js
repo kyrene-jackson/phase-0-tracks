@@ -1,24 +1,28 @@
-/*
-RELEASE 0: FIND THE LONGEST WORD
-write a function that takes an array of words or phrases,
+/*======RELEASE 0: FIND THE LONGEST WORD==========
+Write a function that takes an array of
+words or phrases,
 and returns the longest word in the array.
 example input: ['mint', 'gum', 'lollipop']
-function should return: 'lollipop'
+function should print: "The longest word is: lollipop"
 step 1: create a new function that takes a parameter
 step 2: create a 'longestWord' variable that holds
 the longest string
 step 3: FOR the length of the input array TIMES:
            step 4: access first word by index
-           step 5: compare the length of index selected word
+           step 5: compare the length of index
+           selected word
            against the length of 'longestWord'
-           step 6: IF word is length is greater than 'longestWord' length
+           step 6: IF word is length is greater than
+           'longestWord' length
            step 7: assign word to 'longestWord'
-step 8: Once last string is evaluated, print 'longestWord'
-=======================================================================*/
+step 8: Once last string is evaluated,
+print 'longestWord'
+
+===================FUNCTION===================*/
+
 function findWord(array) {
-  var longestWord = null;
+  var longestWord = "";
   for (var i = 0; i < array.length; i++) {
-  longestWord = ""
     if (array[i].length > longestWord.length) {
       longestWord = array[i]
     }
@@ -26,7 +30,7 @@ function findWord(array) {
   console.log("The longest word is: " + longestWord + ".");
 }
 
-/*
+/*====RELEASE 1: FIND A KEY-VALUE MATCH========
 RELEASE 1: FIND A KEY-VALUE MATCH
 write a function that takes two objects and checks to see
 if the objects share at least one key-value pair.
@@ -47,7 +51,8 @@ step 7: iterate through both arrays, comparing each value
 step 8: IF a value from both arrays are the same DATA type and VALUE
       step 9: retrn true
       step 10: ELSE return false
-*/
+      
+===================FUNCTION===================*/
 
 function findMatch(objOne, objTwo) {
 	var storeVal = [];
@@ -68,8 +73,8 @@ for (var i = 0; i < setOne.length; i++) {
 }
 }
 
-/*
-RELEASE 2: GENERATE RANDOM TEST DATA
+/*======RELEASE 2: GENERATE RANDOM TEST DATA==========
+
 Write a function that takes an integer for length,
 builds and returns an array of strings of the given length.
 example input: 3
@@ -105,12 +110,12 @@ note: Release not yet completed :(
 // 	}
 // }
 
-
-// DRIVER CODE (RELEASE 0)
+/*=================DRIVER CODE=================*/
+// (RELEASE 0)
 // findWord(['mint', 'gum', 'lollipop']);
 // findWord(['pizza', 'chocolate', 'muffins']);
 //
-// DRIVER CODE (RELEASE 1)
+// (RELEASE 1)
 // var firstObj = {name: 'Kyrene', age: 21};
 // var secondObj = {name: 'Kyrene', age: 10};
 // console.log(findMatch(firstObj, secondObj));
@@ -118,5 +123,5 @@ note: Release not yet completed :(
 // var secondObj = {name: 'Max', age: 10};
 // console.log(findMatch(firstObj, secondObj));
 //
-// DRIVER CODE (RELEASE 2)
+// (RELEASE 2)
 // randomData(5)
