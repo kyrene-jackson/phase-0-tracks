@@ -1,7 +1,12 @@
 # Virus Predictor
 
+# Pocket Gophers:
 # I worked on this challenge [with: Mandy].
 # We spent [2] hours on this challenge.
+
+# Nighthawks:
+# Emergency situation
+# Refactored solo
 
 # EXPLANATION OF require_relative
 # require_relative tries to load the data from the file name given as a string (relative to where the current file is).
