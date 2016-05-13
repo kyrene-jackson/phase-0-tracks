@@ -1,114 +1,127 @@
 *note: edit display mode before executing queries
 sqlite> .header on
 sqlite> .mode column
+sqlite> .timer on
 =========================
 1. Display the information in one table
 
-sqlite> SELECT * FROM menu;
+sqlite> SELECT * FROM games;
+id          game      
+----------  ----------
+1           GTA V     
+2           Dark Souls
+3           Overwatch 
+4           Uncharted 
 
-id          item       
-----------  -----------
-1           iced coffee
-2           green tea  
-3           cappuccino 
-4           latte
+
 =========================
+
 2. Update an item that meets some condition
 
 Before update
 
-sqlite> SELECT * FROM customer;
-
-id          name        menu_id     price     
+id          name        game_id     price     
 ----------  ----------  ----------  ----------
-1           Mitch       1           2.25      
-2           Zoe         4           3.15      
-3           Byron       2           2.05      
-4           Jade        3           3.89 
+1           Richard     2           59.99     
+2           Dinesh      4           50.05     
+3           Carla       1           27.64     
+4           Erlich      3           60.95  
 
-After update 
+After price update
+sqlite> UPDATE customers 
+   ...> SET price = 50.15
+   ...> WHERE id = 2;
 
-sqlite> UPDATE customer SET price = 2.75 WHERE id = 1;
-
-id          name        menu_id     price     
+id          name        game_id     price     
 ----------  ----------  ----------  ----------
-1           Mitch       1           2.75      
-2           Zoe         4           3.15      
-3           Byron       2           2.05      
-4           Jade        3           3.89      
-5           Nick        4           3.15 
+1           Richard     2           59.99     
+2           Dinesh      4           50.15     
+3           Carla       1           27.64     
+4           Erlich      3           60.95  
 
 =========================
+
 3. Display the information in both tables using one query
 
-sqlite> SELECT * FROM customer, menu WHERE menu_id = menu.id;
-
-id          name        menu_id     price       id          item       
-----------  ----------  ----------  ----------  ----------  -----------
-1           Mitch       1           2.75        1           iced coffee
-2           Zoe         4           3.15        4           latte      
-3           Byron       2           2.05        2           green tea  
-4           Jade        3           3.89        3           cappuccino 
-5           Nick        4           3.15        4           latte
+SELECT * FROM games, customers WHERE games.id = game_id;
+id          game          id          name        game_id     price     
+----------  ------------  ----------  ----------  ----------  ----------
+2           Dark Souls 3  1           Richard     2           59.99     
+4           Uncharted     2           Dinesh      4           50.15     
+1           GTA V         3           Carla       1           27.64     
+3           Overwatch     4           Erlich      3           60.95   
 
 =========================
 4. Display a narrower selection of columns from both tables using one query 
 
-sqlite> SELECT menu.item, customer.name FROM menu JOIN customer ON customer.menu_id = menu.id;
+sqlite> SELECT customers.name, games.game FROM customers JOIN games ON customers.game_id = games.id;
 
-item         name      
------------  ----------
-iced coffee  Mitch     
-latte        Zoe       
-green tea    Byron     
-cappuccino   Jade      
-latte        Nick   
-     
+name        game        
+----------  ------------
+Richard     Dark Souls 3
+Dinesh      Uncharted   
+Carla       GTA V       
+Erlich      Overwatch 
+
 =========================
 5. Delete an item that meets some condition
 
-sqlite> DELETE FROM customer WHERE name = "Nick";
+DELETE FROM customers WHERE name = "Erlich";
 
-id          name        menu_id     price     
+id          name        game_id     price     
 ----------  ----------  ----------  ----------
-1           Mitch       1           2.75      
-2           Zoe         4           3.15      
-3           Byron       2           2.05      
-4           Jade        3           3.89 
+1           Richard     2           59.99     
+2           Dinesh      4           50.15     
+3           Carla       1           27.64 
+
 
 =========================
 *Try a few different joins in your database
 
-sqlite> SELECT *
-   ...> FROM menu
-   ...> CROSS JOIN customer
-   ...> where menu.id=customer.id;;
+sqlite> SELECT game_id, name FROM customers LEFT JOIN games 
+   ...> ON customers.game_id = games.id;
 
-id          item         id          name        menu_id     price     
-----------  -----------  ----------  ----------  ----------  ----------
-1           iced coffee  1           Mitch       1           2.75      
-2           green tea    2           Zoe         4           3.15      
-3           cappuccino   3           Byron       2           2.05      
-4           latte        4           Jade        3           3.89   
-
-
-
-sqlite> SELECT menu_id, price FROM customer INNER JOIN menu ON menu_id=menu.id;
-
-menu_id     price     
+game_id     name      
 ----------  ----------
-1           2.75      
-4           3.15      
-2           2.05      
-3           3.89  
+2           Richard   
+4           Dinesh    
+1           Carla 
 
 
 
-sqlite> SELECT name, price FROM customer LEFT OUTER JOIN menu ON customer.id=menu.id;
+
+sqlite> SELECT name, price FROM customers LEFT OUTER JOIN games ON customers.id = games.id;
+
 
 name        price     
 ----------  ----------
-Mitch       2.75      
-Zoe         3.15      
-Byron       2.05      
-Jade        3.89  
+Richard     59.99     
+Dinesh      50.15     
+Carla       27.64 
+
+
+
+select game_id FROM customers INNER JOIN games ON customers.id = games.id;
+
+game_id   
+----------
+2         
+4         
+1 
+
+
+SELECT price FROM customers LEFT OUTER JOIN games ON customers.id = games.id;
+
+price     
+----------
+59.99     
+50.15     
+27.64  
+
+sqlite> SELECT * FROM games CROSS JOIN customers WHERE games.id = customers.game_id;
+
+id          game        id          name        game_id     price     
+----------  ----------  ----------  ----------  ----------  ----------
+1           GTA V       3           Carla       1           27.64     
+2           Dark Souls  1           Richard     2           59.99     
+4           Uncharted   2           Dinesh      4           50.15 
