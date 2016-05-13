@@ -73,3 +73,55 @@ id          name        game_id     price
 1           Richard     2           59.99     
 2           Dinesh      4           50.15     
 3           Carla       1           27.64 
+
+
+=========================
+*Try a few different joins in your database
+
+sqlite> SELECT game_id, name FROM customers LEFT JOIN games 
+   ...> ON customers.game_id = games.id;
+
+game_id     name      
+----------  ----------
+2           Richard   
+4           Dinesh    
+1           Carla 
+
+
+
+
+sqlite> SELECT name, price FROM customers LEFT OUTER JOIN games ON customers.id = games.id;
+
+
+name        price     
+----------  ----------
+Richard     59.99     
+Dinesh      50.15     
+Carla       27.64 
+
+
+
+select game_id FROM customers INNER JOIN games ON customers.id = games.id;
+
+game_id   
+----------
+2         
+4         
+1 
+
+
+SELECT price FROM customers LEFT OUTER JOIN games ON customers.id = games.id;
+
+price     
+----------
+59.99     
+50.15     
+27.64  
+
+sqlite> SELECT * FROM games CROSS JOIN customers WHERE games.id = customers.game_id;
+
+id          game        id          name        game_id     price     
+----------  ----------  ----------  ----------  ----------  ----------
+1           GTA V       3           Carla       1           27.64     
+2           Dark Souls  1           Richard     2           59.99     
+4           Uncharted   2           Dinesh      4           50.15 
