@@ -62,3 +62,14 @@ Richard     Dark Souls 3
 Dinesh      Uncharted   
 Carla       GTA V       
 Erlich      Overwatch 
+
+=========================
+5. Delete an item that meets some condition
+
+DELETE FROM customers WHERE name = "Erlich";
+
+id          name        game_id     price     
+----------  ----------  ----------  ----------
+1           Richard     2           59.99     
+2           Dinesh      4           50.15     
+3           Carla       1           27.64 
