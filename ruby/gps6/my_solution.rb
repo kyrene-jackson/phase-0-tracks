@@ -112,6 +112,9 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
+
+# Release 5
+# Create a report for all 50 states in a DRY way
 STATE_DATA.each do |state, data|
   current_state = VirusPredictor.new(state, data[:population_density], data[:population])
   current_state.virus_effects
