@@ -31,7 +31,7 @@ class GameManager
   end
   def greet
     puts "Hello #{@user_name}!"
-    puts "Welcome to your personal video game"
+    puts "Welcome to your video game"
     puts "collection manager!"
     show_main_menu
     puts " "

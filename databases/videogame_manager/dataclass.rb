@@ -1,5 +1,13 @@
 # This class will handle the data manipulation of the program
-# REQUIRES
+# Create manager class
+  # Methods: initialize, create_tables,
+  # populate_genre, populate_console 
+
+
+
+
+
+# Require files
 require_relative 'managerclass'
 #======================DATABASE CLASS========================
 
