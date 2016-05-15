@@ -76,7 +76,7 @@ puts "Please select what you'd like to do: "
 puts "| add new game = 1 |"
 menu_selection = gets.chomp
 
-# begin case statement 
+# begin case statement
 
 
 
