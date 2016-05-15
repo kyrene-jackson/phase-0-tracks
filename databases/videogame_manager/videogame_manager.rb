@@ -9,6 +9,18 @@
 # Store new database into constant global
 # Store console, genre, and game table
 # string delimiters into variables.
+# Populate console and genre fields
+#
+# Create GameLibrary class
+  # Methods: initialize, greet, show_menu,
+  # populate_genre, populate_console
+  # add_game, update_game, delete_game,
+  # view_library
+  #
+  # Attributes: genre_type, console_name 
+
+
+
 # prompt user for data
 
 
@@ -46,15 +58,15 @@ create_game_table = <<-SQL
   )
 SQL
 
-#============CLASSES==================
+#================CLASS================
 
 class GameLibrary
+  attr_reader
 
 
 
 
-
-  #============DRIVER CODE==============
+#============DRIVER CODE==============
 
   # Execute tables
   $DATABASE.execute(create_console_table)
@@ -64,7 +76,7 @@ class GameLibrary
 
 
 
-#============USER INTERFACE============
+#============USER INTERFACE===========
 
 
 
