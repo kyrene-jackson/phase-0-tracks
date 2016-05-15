@@ -4,8 +4,7 @@
 # from the command line!
 # Programmed By: Kyrene Jackson
 #
-#=====================================
-# PSEUDO CODE
+#============PROGRAM DESIGN==============
 # Require sqlite3 gem
 # Store new database into constant global
 # Store console, genre, and game table
@@ -14,8 +13,7 @@
 
 
 
-#=====================================
-# DATABASE AND TABLES
+#============DATABASE AND TABLES=========
 
 require 'sqlite3'
 
@@ -48,17 +46,26 @@ create_game_table = <<-SQL
   )
 SQL
 
+#============CLASSES==================
 
-#=====================================
-# DRIVER CODE
+class GameLibrary
 
-# Execute tables
-$DATABASE.execute(create_console_table)
-$DATABASE.execute(create_genre_table)
-$DATABASE.execute(create_game_table)
 
-#=====================================
-# USER INTERFACE
+
+
+
+  #============DRIVER CODE==============
+
+  # Execute tables
+  $DATABASE.execute(create_console_table)
+  $DATABASE.execute(create_genre_table)
+  $DATABASE.execute(create_game_table)
+
+
+
+
+#============USER INTERFACE============
+
 
 
 
@@ -67,13 +74,15 @@ puts "Please enter your name: "
 name = gets.chomp
 puts "Hello #{name}! Welcome to your
 personal video game library manager"
-puts "------------------------------"
+
 
 
 
 # MENU
-puts "Please select what you'd like to do: "
-puts "| add new game = 1 |"
+puts "Select a command: "
+puts "-----------------------------------------------------------------------"
+puts "| Add game = 1 | View library = 2 | Update game = 3 | Delete game = 4 |"
+puts "-----------------------------------------------------------------------"
 menu_selection = gets.chomp
 
 # begin case statement
@@ -84,8 +93,7 @@ menu_selection = gets.chomp
 
 
 
-#=====================================
-# TEST CODE
+#============TEST CODE=================
 
 # Add test console
 # $DATABASE.execute("INSERT INTO console (name) VALUES ('PC')")
