@@ -15,6 +15,8 @@
   # Methods: initialize, greet,
   # show_menu, get_command, run
 
+  # view library, edit library, quit
+
 
   # populate_genre,
   # populate_console,
@@ -68,15 +70,19 @@ class GameLibrary
   attr_accessor :genre_type, :console_name, :user_name
   attr_reader :menu
   def initialize(user_name)
-    puts "Starting new instance..."
-  
+    @user_name = user_name
+    greet
   end
   def greet
-    puts "Hello #{@user_name}"
-    puts "Welcome to your personal video game library!"
+    puts "Hello #{@user_name}!"
+    puts "Welcome to your personal video game library."
+    puts "Please select a command: "
     show_menu
   end
   def show_menu
+     menu = ["1 - View Library", "2 - Edit Library", "3 - Quit"]
+     puts "#{menu.join(', ')}"
+  end
 
 
 
@@ -90,7 +96,7 @@ end
 #============DRIVER CODE==============
 # initialize new instance
 new_library = GameLibrary.new("Kyrene")
-new_library.greet
+
 
 
 
