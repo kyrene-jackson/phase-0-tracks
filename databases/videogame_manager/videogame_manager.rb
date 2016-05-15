@@ -12,7 +12,11 @@
 # Populate console and genre fields
 #
 # Create GameLibrary class
-  # Methods: initialize, populate_genre,
+  # Methods: initialize, greet,
+  # get_command,
+
+
+  # populate_genre,
   # populate_console, show_menu,
   # add_game, update_game, delete_game,
   # view_library
@@ -64,10 +68,16 @@ class GameLibrary
   attr_accessor :genre_type, :console_name, :user_name
   def initialize(user_name)
     puts "Starting new instance..."
-    @genre = genre_type
-    @console = console_name
-    @user_name = name
+    @genre_type = genre_type
+    @console_name = console_name
+    @user_name = user_name
   end
+  def greet
+    puts "Hello #{@user_name}"
+    puts "Welcome to your personal video game library!"
+    puts "Please enter a command or type 'q' to exit!"
+  end
+
 end
 
 
@@ -76,6 +86,7 @@ end
 #============DRIVER CODE==============
 # initialize new instance
 new_library = GameLibrary.new("Kyrene")
+new_library.greet
 
 
 
