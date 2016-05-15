@@ -10,6 +10,10 @@
 # Step: create SQLite3 database
 # Step: store database in global var
 # (aware that this is a dangerous practice)
+# add string delimiter for console table creation
+
+
+# execute database
 
 
 
@@ -27,3 +31,5 @@ create_table_cmd = <<-SQL
     name VARCHAR(255)
   )
 SQL
+
+$DATABASE.execute(create_table_cmd)
