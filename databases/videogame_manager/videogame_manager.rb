@@ -26,10 +26,18 @@ require 'sqlite3'
 $DATABASE = SQLite3::Database.new("videogames.db")
 
 create_table_cmd = <<-SQL
-  CREATE TABLE console (
+  CREATE TABLE IF NOT EXISTS console (
     id INTEGER PRIMARY KEY,
     name VARCHAR(255)
   )
 SQL
 
 $DATABASE.execute(create_table_cmd)
+
+
+
+#=====================================
+# DRIVER CODE
+
+# add test console
+$DATABASE.execute("INSERT INTO console (name) VALUES ('PC')")
