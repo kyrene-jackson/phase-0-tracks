@@ -10,7 +10,7 @@
 # Store new database into constant global
 # Store console, genre, and game table
 # string delimiters into variables.
-
+# prompt user for data
 
 
 
@@ -60,22 +60,23 @@ $DATABASE.execute(create_game_table)
 #=====================================
 # USER INTERFACE
 
+
+
+# GREETING
 puts "Please enter your name: "
 name = gets.chomp
 puts "Hello #{name}! Welcome to your
 personal video game library manager"
 puts "------------------------------"
-puts "lets start by adding a game"
-puts "What console is your game avaliable on?"
-new_console = gets.chomp
-$DATABASE.execute( "INSERT INTO console (name) VALUES ('#{new_console}')")
 
 
 
+# MENU
+puts "Please select what you'd like to do: "
+puts "| add new game = 1 |"
+menu_selection = gets.chomp
 
-
-
-
+# begin case statement 
 
 
 
