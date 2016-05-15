@@ -34,9 +34,15 @@ create_table_cmd = <<-SQL
     id INTEGER PRIMARY KEY,
     type VARCHAR(255)
   )
-  CREATE TABLE IF NOT EXISTS video_game
+  CREATE TABLE IF NOT EXISTS game (
     id INTEGER PRIMARY KEY,
-    game VARCHAR(255)
+    title VARCHAR(255)
+    console_id INT
+    genre_id INT
+    price DECIMAL(4, 2)
+    completed BOOLEAN
+  )
+
 SQL
 
 
