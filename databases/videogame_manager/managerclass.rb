@@ -1,4 +1,5 @@
-#================UI CLASS================
+# This class will handle the UI aspects of the program
+#================GAME MANAGER CLASS===================
 
 class GameManager
   attr_accessor :genre_type, :console_name, :user_name
@@ -9,12 +10,13 @@ class GameManager
   end
   def greet
     puts "Hello #{@user_name}!"
-    puts "Welcome to your personal video game library."
+    puts "Welcome to your personal video game"
+    puts "collection manager!"
     show_menu
     puts " "
   end
   def show_menu
-     menu = {"view library" => 1, "edit library" => 2, "quit" => 3}
+     menu = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
      menu.each do |key, value|
        print "|#{key} - #{value}|"
      end
@@ -22,5 +24,5 @@ class GameManager
   def get_command
     puts "Please enter a command: "
     user_command = gets.chomp.to_i
-    if menu.has_value?(user_command)
+  end
 end

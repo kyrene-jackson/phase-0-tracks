@@ -5,38 +5,12 @@
 # Programmed By: Kyrene Jackson
 #
 #============PROGRAM DESIGN==============
-# Require sqlite3 gem
-# Store new database into constant global
-# Store console, genre, and game table
-# string delimiters into variables.
-# Populate console and genre fields
-#
-# Create GameManager class
-  # Methods: initialize, greet,
-  # show_menu, get_command, run
-
-  # view library, edit library, quit
-
-
-  # populate_genre,
-  # populate_console,
-  # add_game, update_game, delete_game,
-  # view_library
-  #
-  # Attributes: genre_type, console_name,
-  # user_name
-
-
-# Create GameDatabase class
-  # Methods:
-
-
-
-
-#============DATABASE AND TABLES=========
-
+# FINAL DESIGN PSEUDOCODE GOES HERE
+#=============REQUIRES====================
 require 'sqlite3'
+require_relative 'managerclass'
 
+#===========================================
 $DATABASE = SQLite3::Database.new("videogames.db")
 
 create_console_table = <<-SQL
@@ -66,37 +40,8 @@ create_game_table = <<-SQL
   )
 SQL
 
-#================UI CLASS================
 
-class GameManager
-  attr_accessor :genre_type, :console_name, :user_name
-  attr_reader :menu
-  def initialize(user_name)
-    @user_name = user_name
-    greet
-  end
-  def greet
-    puts "Hello #{@user_name}!"
-    puts "Welcome to your personal video game library."
-    show_menu
-    puts " "
-  end
-  def show_menu
-     menu = {"view library" => 1, "edit library" => 2, "quit" => 3}
-     menu.each do |key, value|
-       print "|#{key} - #{value}|"
-     end
-  end
-  def get_command
-    puts "Please enter a command: "
-    user_command = gets.chomp.to_i
-    if menu.has_value?(user_command)
-end
 
-#================DATABASE CLASS================
-
-class GameDatabase
-  def initialize
 
 
 #============DRIVER CODE==============
