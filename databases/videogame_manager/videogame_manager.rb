@@ -12,13 +12,13 @@
 # Populate console and genre fields
 #
 # Create GameLibrary class
-  # Methods: initialize, greet, show_menu,
-  # populate_genre, populate_console
+  # Methods: initialize, populate_genre,
+  # populate_console, show_menu,
   # add_game, update_game, delete_game,
   # view_library
   #
-  # Attributes: genre_type, console_name 
-
+  # Attributes: genre_type, console_name,
+  # user_name
 
 
 # prompt user for data
@@ -61,17 +61,27 @@ SQL
 #================CLASS================
 
 class GameLibrary
-  attr_reader
+  attr_accessor :genre_type, :console_name, :user_name
+  def initialize(user_name)
+    puts "Starting new instance..."
+    @genre = genre_type
+    @console = console_name
+    @user_name = name
+  end
 
 
 
 
 #============DRIVER CODE==============
+# initialize new instance
+new_library = GameLibrary.new 
 
-  # Execute tables
-  $DATABASE.execute(create_console_table)
-  $DATABASE.execute(create_genre_table)
-  $DATABASE.execute(create_game_table)
+
+
+# Execute tables
+# $DATABASE.execute(create_console_table)
+# $DATABASE.execute(create_genre_table)
+# $DATABASE.execute(create_game_table)
 
 
 
@@ -80,29 +90,14 @@ class GameLibrary
 
 
 
-
-# GREETING
-puts "Please enter your name: "
-name = gets.chomp
-puts "Hello #{name}! Welcome to your
-personal video game library manager"
-
-
-
-
-# MENU
-puts "Select a command: "
-puts "-----------------------------------------------------------------------"
-puts "| Add game = 1 | View library = 2 | Update game = 3 | Delete game = 4 |"
-puts "-----------------------------------------------------------------------"
-menu_selection = gets.chomp
-
+#
+# # MENU
+# puts "Select a command: "
+# puts "-----------------------------------------------------------------------"
+# puts "| Add game = 1 | View library = 2 | Update game = 3 | Delete game = 4 |"
+# puts "-----------------------------------------------------------------------"
+# menu_selection = gets.chomp
 # begin case statement
-
-
-
-
-
 
 
 #============TEST CODE=================
