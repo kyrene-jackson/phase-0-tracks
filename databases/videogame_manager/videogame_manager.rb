@@ -6,20 +6,16 @@
 #
 #=====================================
 # PSEUDO CODE
-# Step: require sqlite3 gem
-# Step: create SQLite3 database
-# Step: store database in global var
-# (aware that this is a dangerous practice)
-# add string delimiter for console table creation
-
-
-# execute database
-# add values
+# Require sqlite3 gem
+# Store new database into constant global
+# Store console, genre, and game table
+# string delimiters into variables.
 
 
 
 
 #=====================================
+# DATABASE AND TABLES
 
 require 'sqlite3'
 
@@ -52,6 +48,24 @@ create_game_table = <<-SQL
   )
 SQL
 
+#=====================================
+# DRIVER CODE
+
+# Execute tables
+$DATABASE.execute(create_console_table)
+$DATABASE.execute(create_genre_table)
+$DATABASE.execute(create_game_table)
+
+#=====================================
+# USER INTERFACE
+
+puts "Please enter your name: "
+name = gets.chomp
+puts "Hello #{name}! Welcome to your
+personal video game library."
+
+
+
 
 
 
@@ -64,14 +78,13 @@ SQL
 
 
 #=====================================
-# DRIVER CODE
+# TEST CODE
 
-# execute
-
-$DATABASE.execute(create_console_table)
-$DATABASE.execute(create_genre_table)
-$DATABASE.execute(create_game_table)
-
-
-# add test console
+# Add test console
 # $DATABASE.execute("INSERT INTO console (name) VALUES ('PC')")
+
+# Add test genre
+# $DATABASE.execute("INSERT INTO genre (type) VALUES ('RPG')")
+
+# Add test game
+# $DATABASE.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
