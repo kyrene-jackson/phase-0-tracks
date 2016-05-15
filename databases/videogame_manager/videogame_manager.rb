@@ -11,7 +11,7 @@
 # string delimiters into variables.
 # Populate console and genre fields
 #
-# Create UserInterface class
+# Create GameManager class
   # Methods: initialize, greet,
   # show_menu, get_command, run
 
@@ -27,7 +27,9 @@
   # user_name
 
 
-# prompt user for data
+# Create GameDatabase class
+  # Methods:
+
 
 
 
@@ -66,7 +68,7 @@ SQL
 
 #================UI CLASS================
 
-class UserInterface
+class GameManager
   attr_accessor :genre_type, :console_name, :user_name
   attr_reader :menu
   def initialize(user_name)
@@ -89,20 +91,17 @@ class UserInterface
     puts "Please enter a command: "
     user_command = gets.chomp.to_i
     if menu.has_value?(user_command)
-
-
-
-
-
 end
 
 #================DATABASE CLASS================
 
+class GameDatabase
+  def initialize
 
 
 #============DRIVER CODE==============
 # initialize new instance
-new_library = UserInterface.new("Kyrene")
+new_library = GameManager.new("Kyrene")
 
 
 
