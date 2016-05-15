@@ -32,8 +32,11 @@ create_table_cmd = <<-SQL
   )
   CREATE TABLE IF NOT EXISTS genre (
     id INTEGER PRIMARY KEY,
-    name VARCHAR(255)
+    type VARCHAR(255)
   )
+  CREATE TABLE IF NOT EXISTS video_game
+    id INTEGER PRIMARY KEY,
+    game VARCHAR(255)
 SQL
 
 
