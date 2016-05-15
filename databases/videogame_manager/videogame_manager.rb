@@ -68,13 +68,14 @@ class GameLibrary
     @console = console_name
     @user_name = name
   end
+end
 
 
 
 
 #============DRIVER CODE==============
 # initialize new instance
-new_library = GameLibrary.new 
+new_library = GameLibrary.new("Kyrene")
 
 
 
