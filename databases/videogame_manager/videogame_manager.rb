@@ -76,12 +76,15 @@ class GameLibrary
   def greet
     puts "Hello #{@user_name}!"
     puts "Welcome to your personal video game library."
-    puts "Please select a command: "
+    puts "Please enter a command: "
     show_menu
   end
   def show_menu
-     menu = ["1 - View Library", "2 - Edit Library", "3 - Quit"]
-     puts "#{menu.join(', ')}"
+     menu = {"view library" => 1, "edit library" => 2, "quit" => 3}
+     menu.each do |key, value|
+       print "|#{key} - #{value}|"
+  
+     end
   end
 
 
