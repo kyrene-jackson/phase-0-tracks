@@ -76,16 +76,18 @@ class GameLibrary
   def greet
     puts "Hello #{@user_name}!"
     puts "Welcome to your personal video game library."
-    puts "Please enter a command: "
     show_menu
+    puts " "
   end
   def show_menu
      menu = {"view library" => 1, "edit library" => 2, "quit" => 3}
      menu.each do |key, value|
        print "|#{key} - #{value}|"
-  
      end
   end
+  def get_command
+    puts "Please enter a command: "
+    user_command = gets.chomp.to_i 
 
 
 
