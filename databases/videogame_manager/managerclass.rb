@@ -1,8 +1,29 @@
 # This class will handle the UI aspects of the program
+#
+# Create GameManager class
+  # Methods: initialize, greet,
+  # show_main_menu, get_command, run
+
+  # view library, edit library, quit
+
+
+  # populate_genre,
+  # populate_console,
+  # add_game, update_game, delete_game,
+  # view_library
+  #
+
+
+
+  # Attributes: # user_name
+
+
+# Require dataclass
+require_relative 'dataclass'
 #================GAME MANAGER CLASS===================
 
 class GameManager
-  attr_accessor :genre_type, :console_name, :user_name
+  attr_accessor :user_name
   attr_reader :menu
   def initialize(user_name)
     @user_name = user_name
@@ -12,10 +33,10 @@ class GameManager
     puts "Hello #{@user_name}!"
     puts "Welcome to your personal video game"
     puts "collection manager!"
-    show_menu
+    show_main_menu
     puts " "
   end
-  def show_menu
+  def show_main_menu
      menu = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
      menu.each do |key, value|
        print "|#{key} - #{value}|"
