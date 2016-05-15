@@ -25,15 +25,21 @@ require 'sqlite3'
 
 $DATABASE = SQLite3::Database.new("videogames.db")
 
-create_table_cmd = <<-SQL
+create_console_table = <<-SQL
   CREATE TABLE IF NOT EXISTS console (
     id INTEGER PRIMARY KEY,
     name VARCHAR(255)
   )
+SQL
+
+create_genre_table = <<-SQL
   CREATE TABLE IF NOT EXISTS genre (
     id INTEGER PRIMARY KEY,
     type VARCHAR(255)
   )
+SQL
+
+create_game_table = <<-SQL
   CREATE TABLE IF NOT EXISTS game (
     id INTEGER PRIMARY KEY,
     title VARCHAR(255),
@@ -44,8 +50,14 @@ create_table_cmd = <<-SQL
     FOREIGN KEY (console_id) REFERENCES console(id),
     FOREIGN KEY (genre_id) REFERENCES genre(id)
   )
-
 SQL
+
+
+
+
+
+
+
 
 
 
@@ -56,7 +68,9 @@ SQL
 
 # execute
 
-$DATABASE.execute(create_table_cmd)
+$DATABASE.execute(create_console_table)
+$DATABASE.execute(create_genre_table)
+$DATABASE.execute(create_game_table)
 
 
 # add test console
