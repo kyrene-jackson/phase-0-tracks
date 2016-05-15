@@ -36,22 +36,28 @@ create_table_cmd = <<-SQL
   )
   CREATE TABLE IF NOT EXISTS game (
     id INTEGER PRIMARY KEY,
-    title VARCHAR(255)
-    console_id INT
-    genre_id INT
-    price DECIMAL(4, 2)
-    completed BOOLEAN
+    title VARCHAR(255),
+    console_id INT,
+    genre_id INT,
+    price DECIMAL(4, 2),
+    completed BOOLEAN,
+    FOREIGN KEY (console_id) REFERENCES console(id),
+    FOREIGN KEY (genre_id) REFERENCES genre(id)
   )
 
 SQL
 
 
-$DATABASE.execute(create_table_cmd)
 
 
 
 #=====================================
 # DRIVER CODE
 
+# execute
+
+$DATABASE.execute(create_table_cmd)
+
+
 # add test console
-$DATABASE.execute("INSERT INTO console (name) VALUES ('PC')")
+# $DATABASE.execute("INSERT INTO console (name) VALUES ('PC')")
