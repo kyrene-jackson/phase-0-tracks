@@ -17,4 +17,4 @@
 
 require 'sqlite3'
 
-db = SQLite3::Database.new("videogames.db")
+$DATABASE = SQLite3::Database.new("videogames.db")
