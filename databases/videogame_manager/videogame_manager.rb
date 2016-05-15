@@ -8,6 +8,8 @@
 # PSEUDO CODE
 # Step: require sqlite3 gem
 # Step: create SQLite3 database
+# Step: store database in global var
+# (aware that this is a dangerous practice)
 
 
 
@@ -18,3 +20,10 @@
 require 'sqlite3'
 
 $DATABASE = SQLite3::Database.new("videogames.db")
+
+create_table_cmd = <<-SQL
+  CREATE TABLE console (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255)
+  )
+SQL
