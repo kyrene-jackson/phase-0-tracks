@@ -13,11 +13,11 @@
 #
 # Create GameLibrary class
   # Methods: initialize, greet,
-  # get_command,
+  # show_menu, get_command, run
 
 
   # populate_genre,
-  # populate_console, show_menu,
+  # populate_console,
   # add_game, update_game, delete_game,
   # view_library
   #
@@ -66,17 +66,18 @@ SQL
 
 class GameLibrary
   attr_accessor :genre_type, :console_name, :user_name
+  attr_reader :menu
   def initialize(user_name)
-    puts "Starting new instance..."
-    @genre_type = genre_type
-    @console_name = console_name
-    @user_name = user_name
-  end
-  def greet
     puts "Hello #{@user_name}"
     puts "Welcome to your personal video game library!"
-    puts "Please enter a command or type 'q' to exit!"
+    show_menu
   end
+  
+  def show_menu
+
+
+
+
 
 end
 
@@ -105,9 +106,7 @@ new_library.greet
 #
 # # MENU
 # puts "Select a command: "
-# puts "-----------------------------------------------------------------------"
-# puts "| Add game = 1 | View library = 2 | Update game = 3 | Delete game = 4 |"
-# puts "-----------------------------------------------------------------------"
+
 # menu_selection = gets.chomp
 # begin case statement
 
