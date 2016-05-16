@@ -9,7 +9,7 @@
 # Store new database in global var
 # Set string delimiters for table creation
 
-#=============REQUIRES====================
+#===============REQUIRES======================
 require 'sqlite3'
 
 #============DATABASE AND TABLES==============
