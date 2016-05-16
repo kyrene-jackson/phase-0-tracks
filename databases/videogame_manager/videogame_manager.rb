@@ -45,7 +45,61 @@ SQL
 $db.execute(create_game_table)
 $db.execute(create_genre_table)
 $db.execute(create_console_table)
+
+#============HOME SCREEN CLASS==============
+class HomeScreenInterface
+  attr_accessor :user_name, :user_command
+  attr_reader :menu
+  MAIN_MENU = {"view collection" => 'v', "edit collection" => 'e', "quit" => 'q'}
+  def initialize(user_name)
+    @user_name = user_name
+    greet
+  end
+  def greet
+    puts "Hello #{@user_name}!"
+    puts "Welcome to your video game"
+    puts "collection manager!"
+    show_main_menu
+    puts " "
+  end
+  def show_main_menu
+     MAIN_MENU.each do |key, value|
+       print "|#{key} - #{value}|"
+     end
+  end
+end
+#============COMMAND CLASS==============
+class Commands
+  attr_accessor :user_command
+  MAIN_MENU = {"view collection" => 'v', "edit collection" => 'e', "quit" => 'q'}
+  def initialize
+    puts "Preparing commands..."
+  end
+  def get_command
+    puts ""
+    puts "Please enter a command: "
+    @user_command = gets.chomp.downcase
+    check_command
+  end
+  def check_command
+    if !MAIN_MENU.has_value?(@user_command)
+      puts "Error, unknown command, sorry!"
+      get_command
+    else
+      puts "YAY!"
+    end
+  end
+end
+
+
+
+
 #============DRIVER CODE==============
+
+new_user = HomeScreenInterface.new("Kyrene")
+new_command = Commands.new
+new_command.get_command
+
 # Add test console
 # $database.execute("INSERT INTO console (name) VALUES ('PC')")
 
