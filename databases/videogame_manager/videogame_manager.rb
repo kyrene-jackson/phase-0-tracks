@@ -11,7 +11,7 @@
 # Populate genres and consoles
 #===============REQUIRES======================
 require 'sqlite3'
-
+require 'faker'
 #============DATABASE AND TABLES==============
 $db = SQLite3::Database.new("videogames.db")
 
@@ -52,100 +52,15 @@ $db.execute(create_console_table)
 # Add test genre
 # $database.execute("INSERT INTO genre (type) VALUES ('RPG')")
 
-$db.execute("INSERT INTO genre (type) VALUES ('RPG')")
-$db.execute("INSERT INTO genre (type) VALUES ('MMO')")
-$db.execute("INSERT INTO genre (type) VALUES ('Shooter')")
-$db.execute("INSERT INTO genre (type) VALUES ('Action')")
 
 # Add consoles
 # Add test console
 # $database.execute("INSERT INTO console (name) VALUES ('PC')")
-$db.execute("INSERT INTO console (name) VALUES ('PC') ")
-$db.execute("INSERT INTO console (name) VALUES ('Xbox One') ")
-$db.execute("INSERT INTO console (name) VALUES ('PS4') ")
-
-
-
-#============HOME SCREEN CLASS==============
-class HomeScreenInterface
-  attr_accessor :user_name, :user_command
-  attr_reader :menu
-  MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
-  def initialize(user_name)
-    @user_name = user_name
-    greet
-  end
-  def greet
-    puts "Hello #{@user_name}!"
-    puts "Welcome to your video game"
-    puts "collection manager!"
-    show_main_menu
-    puts " "
-  end
-  def show_main_menu
-     MAIN_MENU.each do |key, value|
-       print "|#{key} - #{value}|"
-     end
-  end
-end
-#============MENU SELECT CLASS==============
-class MenuSelect
-  attr_reader :continue
-  MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
-  def initialize
-    puts "Preparing commands..."
-    get_command
-  end
-  def get_command
-    puts ""
-    puts "What would you like to do? : "
-    @user_command = gets.chomp.to_i
-    check_command
-  end
-  def check_command
-    if !MAIN_MENU.has_value?(@user_command)
-      puts "Error, unknown command, sorry!"
-      get_command
-    else
-      check_for_quit
-    end
-  end
-  def check_for_quit
-    # code here
-    # run_command
-  end
-end
-#============COMMANDS CLASS==============
-
-class Commands
-  MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
-  attr_accessor :user_command
-  def initialize
-    puts "loading..."
-  end
-  def run_command
-    case @user_command
-    when 1
-      view_collection
-    when 2
-      edit_collection
-    end
-  end
-  def view_collection
-    $db.execute("SELECT * FROM genre")
-    p $db
-  end
-end
 
 
 
 
 #============DRIVER CODE==============
-
-new_user = HomeScreenInterface.new("Kyrene")
-new_selection = MenuSelect.new
-next_command = Commands.new
-
 
 
 
