@@ -5,15 +5,22 @@
 # Programmed By: Kyrene Jackson
 #
 #============PROGRAM DESIGN==============
-# Require gems
-# Store new database in global var
-# Set string delimiters for table creation
-# Populate genres and consoles
+# Require gems.
+# Create a video game database
+# with a many-to-many relationship.
+# Database tables:
+  # -console
+    # columns: id, name
+  # -genre
+    # columns: id, type
+  # - video_game
+    # columns: id, title, console_id,
+    # genre_id, status
 #===============REQUIRES======================
 require 'sqlite3'
 require 'faker'
 #============DATABASE AND TABLES==============
-$db = SQLite3::Database.new("videogames.db")
+db = SQLite3::Database.new("videogames.db")
 
 create_console_table = <<-SQL
   CREATE TABLE IF NOT EXISTS console (
