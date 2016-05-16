@@ -3,7 +3,7 @@
 # to organize your video game library
 # from the command line!
 # Programmed By: Kyrene Jackson
-#
+# * STILL IN PROGRESS 
 #============PROGRAM DESIGN==============
 # Require gems.
 # Create a video game database
@@ -45,18 +45,27 @@ create_game_table = <<-SQL
   )
 SQL
 
-$db.execute(create_game_table)
-$db.execute(create_genre_table)
 
+$db.execute(create_genre_table)
+$db.execute(create_game_table)
 #=======PROGRAM METHODS==============
 CONSOLES = ['PC', 'Xbox One', 'PS4']
 def populate_genre(genre)
 $db.execute("INSERT INTO genre (type) VALUES ('#{genre}')")
 end
 
-def populate_game(title, genre_id, price, status)
-  $db.execute("INSERT INTO game (title, genre_id, price, status) VALUES (?, ?, ?, ?, ?)", [title, new_genre, price, status])
-end
+# def populate_game(title, genre_id, price, status)
+#   $db.execute("INSERT INTO game (title, genre_id, price, status) VALUES (?, ?, ?, ?)", [title, genre_id, price, status])
+# end
+
+
+populate_genre('RPG')
+populate_genre('MMO')
+
+
+
+
+$db.execute("INSERT INTO game (title, genre_id, price, status) VALUES (('wow', 1, 29.99, true)")
 
 #======COMMAND METHODS==========
 def view_library
@@ -71,8 +80,9 @@ def view_genre
 end
 
 
-populate_genre('RPG')
-populate_genre('MMO')
+# Add some data
+
+# populate_game('World of warcraft', 'shooter', 29.99, true)
 
 
 #=======USER INTERFACE==============
@@ -93,19 +103,9 @@ when 3
   puts "add game"
   puts "What is the title of the game?"
   title = gets.chomp.downcase
-  puts "Will you be entering a new genre for #{title}?"
-  puts "Select: (y/n)"
-  choice = gets.chomp.downcase
-  if choice == "y"
-    puts "Please enter the name of the genre: "
-    new_genre = gets.chomp.downcase
-    populate_genre(new_genre)
-    puts "#{new_genre} has been added!"
-  else
-    puts "Please enter the number of the genre: "
+    puts "Please enter the genre number: "
     view_genre
-    genre_select = gets.chomp.to_i
-    genre = $db.execute("SELECT * FROM genre WHERE 'id'= '#{genre_select}.to_i'")
+    genre_id = gets.chomp.to_i
   end
   puts "How much did #{title} cost? Note: Do not enter anything"
   puts "higher than 99.99 and please use proper price format such as"
@@ -118,10 +118,9 @@ when 3
   else
     status = false
   end
-  puts status
+  # populate_game(title, genre_id, price, status)
+end
 
-end
-end
 
 
 #============DRIVER CODE=============
@@ -130,3 +129,15 @@ end
 
 # Add test genre
 #$db.execute("INSERT INTO genre (type) VALUES ('RPG')")
+
+
+
+# save for updating genre
+# puts "Will you be entering a new genre for #{title}?"
+# puts "Select: (y/n)"
+# choice = gets.chomp.downcase
+# if choice == "y"
+#   puts "Please enter the name of the genre: "
+#   new_genre = gets.chomp.downcase
+#   populate_genre(new_genre)
+#   puts "#{new_genre} has been added!"
