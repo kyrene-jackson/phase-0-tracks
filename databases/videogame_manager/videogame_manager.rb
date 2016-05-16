@@ -48,7 +48,7 @@ create_game_table = <<-SQL
     console_id INT,
     genre_id INT,
     price DECIMAL(4, 2),
-    completed BOOLEAN,
+    status BOOLEAN,
     FOREIGN KEY (console_id) REFERENCES console(id),
     FOREIGN KEY (genre_id) REFERENCES genre(id)
   )
@@ -68,16 +68,18 @@ def populate_console(new_console)
   $db.execute("INSERT INTO console (name) VALUES ('#{new_console}')")
 end
 
+def populate_game(title, console_id, genre_id, status)
+  db.execute("INSERT INTO game (title, console_id, genre_id, price, status) VALUES (?, ?, ?, ?, ?)", [title, selected_console, selected_genre, price, status])
+end
 
 
 
 
 
+  # Add test game
+  # $database.execute("INSERT INTO game (title, console_id, genre_id, status) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
 
 #=======USER INTERFACE==============
-
-
-
 
 
 
@@ -85,8 +87,7 @@ end
 populate_genre('RPG')
 populate_console('PS4')
 
-# Add test game
-# $database.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
+
 
 # Add test genre
 #$db.execute("INSERT INTO genre (type) VALUES ('RPG')")
