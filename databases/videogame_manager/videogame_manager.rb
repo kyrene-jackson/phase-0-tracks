@@ -50,8 +50,8 @@ $db.execute(create_genre_table)
 
 #=======PROGRAM METHODS==============
 CONSOLES = ['PC', 'Xbox One', 'PS4']
-def populate_genre(new_genre)
-$db.execute("INSERT INTO genre (type) VALUES ('#{new_genre}')")
+def populate_genre(genre)
+$db.execute("INSERT INTO genre (type) VALUES ('#{genre}')")
 end
 
 def populate_game(title, genre_id, price, status)
@@ -97,7 +97,10 @@ when 3
   puts "Select: (y/n)"
   choice = gets.chomp.downcase
   if choice == "y"
-    # add new genre
+    puts "Please enter the name of the genre: "
+    new_genre = gets.chomp.downcase
+    populate_genre(new_genre)
+    puts "#{new_genre} has been added!"
   else
     puts "Please enter the number of the genre: "
     view_genre
