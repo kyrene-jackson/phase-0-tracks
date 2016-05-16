@@ -16,6 +16,11 @@
   # - video_game
     # columns: id, title, console_id,
     # genre_id, status
+#
+# Program methods:
+  # populate_genre, populate_console
+
+
 #===============REQUIRES======================
 require 'sqlite3'
 require 'faker'
@@ -54,9 +59,13 @@ $db.execute(create_genre_table)
 $db.execute(create_console_table)
 
 
-#====POPULATE GENRE AND CONSOLE METHODS=====
+#=======PROGRAM METHODS==============
 def populate_genre(new_genre)
 $db.execute("INSERT INTO genre (type) VALUES ('#{new_genre}')")
+end
+
+def populate_console(new_console)
+  $db.execute("INSERT INTO console (name) VALUES ('#{new_console}')")
 end
 
 
@@ -65,15 +74,16 @@ end
 
 
 
-#=======USER INTERFACE===============
+#=======USER INTERFACE==============
 
 
 
 
 
 
-#============DRIVER CODE==============
+#============DRIVER CODE=============
 populate_genre('RPG')
+populate_console('PS4')
 
 # Add test game
 # $database.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
