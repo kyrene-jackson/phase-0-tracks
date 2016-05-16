@@ -16,7 +16,8 @@
     # columns: id, type
 #
 # Program methods:
-  # populate_genre
+  # populate_genre, populate_game,
+  # view_library, view_genre
 
 
 
@@ -47,9 +48,8 @@ SQL
 $db.execute(create_game_table)
 $db.execute(create_genre_table)
 
-
-
 #=======PROGRAM METHODS==============
+CONSOLES = ['PC', 'Xbox One', 'PS4']
 def populate_genre(new_genre)
 $db.execute("INSERT INTO genre (type) VALUES ('#{new_genre}')")
 end
@@ -60,11 +60,19 @@ end
 
 #======COMMAND METHODS==========
 def view_library
-  library = $db.execute("SELECT * FROM game")
+  game_library = $db.execute("SELECT * FROM game")
   puts "This is your collection: "
-  puts library
+  puts game_library
 end
 
+def view_genre
+  genre_library = $db.execute("SELECT * FROM genre")
+  puts genre_library
+end
+
+
+populate_genre('RPG')
+populate_genre('MMO')
 
 
 #=======USER INTERFACE==============
@@ -83,6 +91,19 @@ when 2
   puts "update library"
 when 3
   puts "add game"
+  puts "What is the title of the game?"
+  title = gets.chomp.downcase
+  puts "Will you be entering a new genre for #{title}?"
+  puts "Select: (y/n)"
+  choice = gets.chomp.downcase
+  if choice == "y"
+    # add new genre
+  else
+    puts "Please enter the number of the genre: "
+    view_genre
+    genre_select = gets.chomp.to_i
+    genre = $db.execute("SELECT * FROM genre WHERE 'id'= genre_select")
+  end
 end
 end
 
@@ -90,8 +111,6 @@ end
 #============DRIVER CODE=============
 # populate_genre('RPG')
 #populate_game('World of Warcraft', 1, 1, 29.99, true)
-
-
 
 # Add test genre
 #$db.execute("INSERT INTO genre (type) VALUES ('RPG')")
