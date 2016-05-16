@@ -72,6 +72,14 @@ def populate_game(title, console_id, genre_id, price, status)
   $db.execute("INSERT INTO game (title, console_id, genre_id, price, status) VALUES (?, ?, ?, ?, ?)", [title, selected_console, selected_genre, price, status])
 end
 
+#======COMMAND METHODS==========
+def view_library
+  library = $db.execute("SELECT * FROM genre")
+  puts library
+end
+
+
+
 #=======USER INTERFACE==============
 MAIN_MENU = "|'view library: 1', 'update library: 2', 'add game: 3', 'quit: 4'|"
 puts "Welcome to your own video game"
@@ -83,7 +91,7 @@ user_cmd = gets.chomp.to_i
 break if user_cmd == 4
 case user_cmd
 when 1
-  puts "view library"
+  view_library
 when 2
   puts "update library"
 when 3
@@ -91,10 +99,12 @@ when 3
 end
 end
 
+
 #============DRIVER CODE=============
+
 # populate_genre('RPG')
 # populate_console('PS4')
-# populate_game('World of Warcraft', 1, 1, 29.99, true)
+#populate_game('World of Warcraft', 1, 1, 29.99, true)
 
 
 
