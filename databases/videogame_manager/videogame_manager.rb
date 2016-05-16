@@ -18,15 +18,18 @@ require_relative 'dataclass'
 
 
 class Program
+  attr_accessor :test_user, :test_database
   def initialize
     test_user = GameManager.new("Kyrene")
     test_database = GameDatabase.new
   end
 
+
 end
 
 
 testing = Program.new
+
 
 
 
