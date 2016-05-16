@@ -50,7 +50,7 @@ $db.execute(create_console_table)
 class HomeScreenInterface
   attr_accessor :user_name, :user_command
   attr_reader :menu
-  MAIN_MENU = {"view collection" => 'v', "edit collection" => 'e', "quit" => 'q'}
+  MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
   def initialize(user_name)
     @user_name = user_name
     greet
@@ -70,15 +70,14 @@ class HomeScreenInterface
 end
 #============COMMAND CLASS==============
 class Commands
-  attr_accessor :user_command
-  MAIN_MENU = {"view collection" => 'v', "edit collection" => 'e', "quit" => 'q'}
+  MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
   def initialize
     puts "Preparing commands..."
   end
   def get_command
     puts ""
     puts "Please enter a command: "
-    @user_command = gets.chomp.downcase
+    @user_command = gets.chomp.to_i
     check_command
   end
   def check_command
@@ -86,8 +85,12 @@ class Commands
       puts "Error, unknown command, sorry!"
       get_command
     else
-      puts "YAY!"
+      run_command
     end
+  end
+  def run_command
+
+
   end
 end
 
