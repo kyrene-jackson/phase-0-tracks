@@ -55,7 +55,7 @@ $db.execute("INSERT INTO genre (type) VALUES ('#{genre}')")
 end
 
 def populate_game(title, genre_id, price, status)
-  $db.execute("INSERT INTO game (title, genre_id, price, status) VALUES (?, ?, ?, ?, ?)", [title, selected_genre, price, status])
+  $db.execute("INSERT INTO game (title, genre_id, price, status) VALUES (?, ?, ?, ?, ?)", [title, new_genre, price, status])
 end
 
 #======COMMAND METHODS==========
@@ -105,8 +105,21 @@ when 3
     puts "Please enter the number of the genre: "
     view_genre
     genre_select = gets.chomp.to_i
-    genre = $db.execute("SELECT * FROM genre WHERE 'id'= genre_select")
+    genre = $db.execute("SELECT * FROM genre WHERE 'id'= '#{genre_select}.to_i'")
   end
+  puts "How much did #{title} cost? Note: Do not enter anything"
+  puts "higher than 99.99 and please use proper price format such as"
+  puts "59.99"
+  price = gets.chomp
+  puts "Have you finished #{title} yet? (y/n)"
+  answer = gets.chomp.downcase
+  if answer == "y"
+    status = true
+  else
+    status = false
+  end
+  puts status
+
 end
 end
 
