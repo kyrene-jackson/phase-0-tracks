@@ -49,9 +49,9 @@ create_game_table = <<-SQL
   )
 SQL
 
-$db.execute(create_game_table)
-$db.execute(create_genre_table)
-$db.execute(create_console_table)
+db.execute(create_game_table)
+db.execute(create_genre_table)
+db.execute(create_console_table)
 #=======POPULATE GENRES AND CONSOLES========
 # Add test game
 # $database.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
