@@ -68,24 +68,33 @@ def populate_console(new_console)
   $db.execute("INSERT INTO console (name) VALUES ('#{new_console}')")
 end
 
-def populate_game(title, console_id, genre_id, status)
-  db.execute("INSERT INTO game (title, console_id, genre_id, price, status) VALUES (?, ?, ?, ?, ?)", [title, selected_console, selected_genre, price, status])
+def populate_game(title, console_id, genre_id, price, status)
+  $db.execute("INSERT INTO game (title, console_id, genre_id, price, status) VALUES (?, ?, ?, ?, ?)", [title, selected_console, selected_genre, price, status])
 end
 
-
-
-
-
-  # Add test game
-  # $database.execute("INSERT INTO game (title, console_id, genre_id, status) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
-
 #=======USER INTERFACE==============
-
-
+MAIN_MENU = "|'view library: 1', 'update library: 2', 'add game: 3', 'quit: 4'|"
+puts "Welcome to your own video game"
+puts "library manager!"
+loop do
+puts MAIN_MENU
+puts "Please select a menu option: "
+user_cmd = gets.chomp.to_i
+break if user_cmd == 4
+case user_cmd
+when 1
+  puts "view library"
+when 2
+  puts "update library"
+when 3
+  puts "add game"
+end
+end
 
 #============DRIVER CODE=============
-populate_genre('RPG')
-populate_console('PS4')
+# populate_genre('RPG')
+# populate_console('PS4')
+# populate_game('World of Warcraft', 1, 1, 29.99, true)
 
 
 
