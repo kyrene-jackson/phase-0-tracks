@@ -5,7 +5,9 @@
 # Programmed By: Kyrene Jackson
 #
 #============PROGRAM DESIGN==============
-# FINAL DESIGN PSEUDOCODE GOES HERE
+# Require class files
+# Initialize new GameManager instance
+# Initialize new GameDatabase instance
 #=============REQUIRES====================
 require 'sqlite3'
 require_relative 'managerclass'
@@ -13,14 +15,17 @@ require_relative 'dataclass'
 
 #============DRIVER CODE==============
 # initialize new instance of both classes
-test_user = GameManager.new("Kyrene")
-test_database = GameDatabase.new
 
 
+class Program
+  def initialize
+    test_user = GameManager.new("Kyrene")
+    test_database = GameDatabase.new
+  end
+end
 
 
-
-
+testing = Program.new
 
 
 
