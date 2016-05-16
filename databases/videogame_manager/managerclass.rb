@@ -51,9 +51,16 @@ class GameManager
   end
   def check_command
     if !MAIN_MENU.has_value?(@user_command)
-      puts "Try again"
+      puts "Error, unknown command, sorry!"
+      get_command
     else
-      puts "YAY!"
+      run_command
     end
   end
+  def run_command
+    case @user_command
+    when 1
+
+
+    end
 end

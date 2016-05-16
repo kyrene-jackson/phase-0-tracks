@@ -34,12 +34,3 @@ testing = Program.new
 
 
 #============TEST CODE=================
-
-# Add test console
-# $DATABASE.execute("INSERT INTO console (name) VALUES ('PC')")
-
-# Add test genre
-# $DATABASE.execute("INSERT INTO genre (type) VALUES ('RPG')")
-
-# Add test game
-# $DATABASE.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
