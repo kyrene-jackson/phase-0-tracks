@@ -8,7 +8,7 @@
 # Require gems
 # Store new database in global var
 # Set string delimiters for table creation
-
+# Populate genres and consoles
 #===============REQUIRES======================
 require 'sqlite3'
 
@@ -45,6 +45,26 @@ SQL
 $db.execute(create_game_table)
 $db.execute(create_genre_table)
 $db.execute(create_console_table)
+#=======POPULATE GENRES AND CONSOLES========
+# Add test game
+# $database.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
+
+# Add test genre
+# $database.execute("INSERT INTO genre (type) VALUES ('RPG')")
+
+$db.execute("INSERT INTO genre (type) VALUES ('RPG')")
+$db.execute("INSERT INTO genre (type) VALUES ('MMO')")
+$db.execute("INSERT INTO genre (type) VALUES ('Shooter')")
+$db.execute("INSERT INTO genre (type) VALUES ('Action')")
+
+# Add consoles
+# Add test console
+# $database.execute("INSERT INTO console (name) VALUES ('PC')")
+$db.execute("INSERT INTO console (name) VALUES ('PC') ")
+$db.execute("INSERT INTO console (name) VALUES ('Xbox One') ")
+$db.execute("INSERT INTO console (name) VALUES ('PS4') ")
+
+
 
 #============HOME SCREEN CLASS==============
 class HomeScreenInterface
@@ -68,15 +88,17 @@ class HomeScreenInterface
      end
   end
 end
-#============COMMAND CLASS==============
-class Commands
+#============MENU SELECT CLASS==============
+class MenuSelect
+  attr_reader :continue
   MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
   def initialize
     puts "Preparing commands..."
+    get_command
   end
   def get_command
     puts ""
-    puts "Please enter a command: "
+    puts "What would you like to do? : "
     @user_command = gets.chomp.to_i
     check_command
   end
@@ -85,12 +107,33 @@ class Commands
       puts "Error, unknown command, sorry!"
       get_command
     else
-      run_command
+      check_for_quit
     end
   end
+  def check_for_quit
+    # code here
+    # run_command
+  end
+end
+#============COMMANDS CLASS==============
+
+class Commands
+  MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
+  attr_accessor :user_command
+  def initialize
+    puts "loading..."
+  end
   def run_command
-
-
+    case @user_command
+    when 1
+      view_collection
+    when 2
+      edit_collection
+    end
+  end
+  def view_collection
+    $db.execute("SELECT * FROM genre")
+    p $db
   end
 end
 
@@ -100,14 +143,12 @@ end
 #============DRIVER CODE==============
 
 new_user = HomeScreenInterface.new("Kyrene")
-new_command = Commands.new
-new_command.get_command
+new_selection = MenuSelect.new
+next_command = Commands.new
 
-# Add test console
-# $database.execute("INSERT INTO console (name) VALUES ('PC')")
 
-# Add test genre
-# $database.execute("INSERT INTO genre (type) VALUES ('RPG')")
+
+
 
 # Add test game
 # $database.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
