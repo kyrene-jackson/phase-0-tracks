@@ -19,8 +19,8 @@
 #===============REQUIRES======================
 require 'sqlite3'
 require 'faker'
-#============DATABASE AND TABLES==============
-db = SQLite3::Database.new("videogames.db")
+#=======CREATE DATABASE AND TABLES=============
+$db = SQLite3::Database.new("videogames.db")
 
 create_console_table = <<-SQL
   CREATE TABLE IF NOT EXISTS console (
@@ -49,28 +49,39 @@ create_game_table = <<-SQL
   )
 SQL
 
-db.execute(create_game_table)
-db.execute(create_genre_table)
-db.execute(create_console_table)
-#=======POPULATE GENRES AND CONSOLES========
-# Add test game
-# $database.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
-
-# Add test genre
-# $database.execute("INSERT INTO genre (type) VALUES ('RPG')")
+$db.execute(create_game_table)
+$db.execute(create_genre_table)
+$db.execute(create_console_table)
 
 
-# Add consoles
-# Add test console
-# $database.execute("INSERT INTO console (name) VALUES ('PC')")
+#====POPULATE GENRE AND CONSOLE METHODS=====
+def populate_genre(new_genre)
+$db.execute("INSERT INTO genre (type) VALUES ('#{new_genre}')")
+end
+
+
+
+
+
+
+
+#=======USER INTERFACE===============
+
+
 
 
 
 
 #============DRIVER CODE==============
-
-
-
+populate_genre('RPG')
 
 # Add test game
 # $database.execute("INSERT INTO game (title, console_id, genre_id, price, completed) VALUES ('World of Warcraft', 1, 1, 29.99, 'true')")
+
+# Add test genre
+#$db.execute("INSERT INTO genre (type) VALUES ('RPG')")
+
+
+# Add consoles
+# Add test console
+# $database.execute("INSERT INTO console (name) VALUES ('PC')")
