@@ -5,70 +5,32 @@
 # Programmed By: Kyrene Jackson
 #
 #============PROGRAM DESIGN==============
-# FINAL DESIGN PSEUDOCODE GOES HERE
+# Require class files
+# Initialize new GameManager instance
+# Initialize new GameDatabase instance
 #=============REQUIRES====================
 require 'sqlite3'
 require_relative 'managerclass'
-
-#===========================================
-$DATABASE = SQLite3::Database.new("videogames.db")
-
-create_console_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS console (
-    id INTEGER PRIMARY KEY,
-    name VARCHAR(255)
-  )
-SQL
-
-create_genre_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS genre (
-    id INTEGER PRIMARY KEY,
-    type VARCHAR(255)
-  )
-SQL
-
-create_game_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS game (
-    id INTEGER PRIMARY KEY,
-    title VARCHAR(255),
-    console_id INT,
-    genre_id INT,
-    price DECIMAL(4, 2),
-    completed BOOLEAN,
-    FOREIGN KEY (console_id) REFERENCES console(id),
-    FOREIGN KEY (genre_id) REFERENCES genre(id)
-  )
-SQL
-
-
-
-
+require_relative 'dataclass'
 
 #============DRIVER CODE==============
-# initialize new instance
-new_library = GameManager.new("Kyrene")
+# initialize new instance of both classes
 
 
+class Program
+  attr_accessor :test_user, :test_database
+  def initialize
+    test_user = GameManager.new("Kyrene")
+    test_database = GameDatabase.new
+  end
 
 
-# Execute tables
-# $DATABASE.execute(create_console_table)
-# $DATABASE.execute(create_genre_table)
-# $DATABASE.execute(create_game_table)
+end
 
 
+testing = Program.new
 
 
-#============USER INTERFACE===========
-
-
-
-#
-# # MENU
-# puts "Select a command: "
-
-# menu_selection = gets.chomp
-# begin case statement
 
 
 #============TEST CODE=================
