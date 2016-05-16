@@ -25,6 +25,7 @@ require_relative 'dataclass'
 class GameManager
   attr_accessor :user_name
   attr_reader :menu
+  MAIN_MENU = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
   def initialize(user_name)
     @user_name = user_name
     greet
@@ -37,8 +38,7 @@ class GameManager
     puts " "
   end
   def show_main_menu
-     menu = {"view collection" => 1, "edit collection" => 2, "quit" => 3}
-     menu.each do |key, value|
+     MAIN_MENU.each do |key, value|
        print "|#{key} - #{value}|"
      end
   end

@@ -22,6 +22,7 @@ class Program
     test_user = GameManager.new("Kyrene")
     test_database = GameDatabase.new
   end
+
 end
 
 
