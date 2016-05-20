@@ -27,7 +27,7 @@ font-family: "Lucida Console", "Monaco", "monospace";
   margin-left: 25%;
   margin-right: 25%;
   margin-top: 5%;
-  border: 3px solid black;
+  border: 1px solid black;
   position: relative;
 }
 
@@ -46,4 +46,6 @@ ul {
   border: 0.5px solid black;
   border-radius: 50px;
   margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
