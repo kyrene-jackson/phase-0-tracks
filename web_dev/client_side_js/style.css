@@ -3,4 +3,47 @@ background: #1D4350; /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #1D4350 , #A43931); /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to left, #1D4350 , #A43931); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+color: white;
+
+}
+
+#heading {
+font-family: "Lucida Console", "Monaco", "monospace";
+
+}
+
+#reaper-img {
+  width: 100%;
+}
+
+#logo {
+  position: absolute;
+  top: 330px;
+  left: 220px;
+  width: 40%;
+}
+
+.feature {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5%;
+  border: 3px solid black;
+  position: relative;
+}
+
+.content-title {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  font-family: "Lucida Console", "Monaco", "monospace";
+}
+
+.content-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0.5px solid black;
+  border-radius: 50px;
+  margin-top: 10px;
 }
