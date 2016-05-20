@@ -24,4 +24,4 @@
       * Examples of use include: Uploading a file, inserting data through a form.
 
 #### What is a cookie? How does it relate to HTTP requests?
-  * Cookies are small files that are stored on a users computer. These files contain key-value pairs relating to client-server specific data and can be accessed by either client or server. Depending on the data retrieved by a cookie, the server can adjust and respond appropriately to the specific user. Cookies are a convenient way to carry information throughout web sessions without burdening the server with large amounts of data storage by sending multiple requests for the same fields over and over. 
+  * Cookies are small files that are stored on a users computer. These files contain key-value pairs relating to client-server specific data and can be accessed by either client or server. Depending on the data retrieved by a cookie, the server can adjust and respond appropriately to the specific user. Cookies are a convenient way to carry information throughout web sessions without burdening the server with large amounts of data storage by sending multiple requests for the same fields over and over.
