@@ -1,6 +1,6 @@
-($(document).ready(function() {
-  $(".button").click(function(){
-    $("div").animate({
+$(document).ready(function() {
+  $("button").click(function(){
+    $("img").animate({
       height: 'toggle'
     });
   });
