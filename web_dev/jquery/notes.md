@@ -8,3 +8,5 @@
   * Spend 20 minutes researching questions formed after reading the book, using google and stack overflow
   * Spend 10 minutes refactoring/filling any holes of my first practice attempt.
   * Final 10 minutes: Clean up using good git workflow and push to github.
+
+  ###### Note: My plan was organized based off of my learning style and what has worked when learning other rabbit hole concepts as well
