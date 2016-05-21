@@ -28,3 +28,22 @@ img {
   width: 50%;
   position: relative;
 }
+
+#panel_one {
+  padding: 5px;
+  text-align: center;
+  background-color: #43AA8B;
+  border: 0.5px solid black;
+  margin-left: 15%;
+  margin-right: 15%;
+
+}
+
+#panel_two {
+  background-color: #C39D9F;
+  display: none;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: 0.5px solid black;
+  text-align: center;
+}

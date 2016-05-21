@@ -5,3 +5,9 @@ $(document).ready(function() {
     });
   });
 });
+
+$(document).ready(function() {
+  $("#panel_one").click(function() {
+    $("#panel_two").slideDown("slow");
+  });
+});
