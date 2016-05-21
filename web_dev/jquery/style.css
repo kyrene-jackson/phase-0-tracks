@@ -1,0 +1,13 @@
+body {
+  background-color: #F9B5AC;
+}
+
+.dropbtn {
+  background-color: #75B9BE;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: crosshair;
+
+}
