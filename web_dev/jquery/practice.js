@@ -1,1 +1,3 @@
-$("a").text("testing");
+$(document).ready(function() {
+  $("a").fadeIn("slow");
+});
