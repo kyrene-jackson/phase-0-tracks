@@ -11,3 +11,28 @@ body {
   cursor: crosshair;
 
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  visibility: hidden;
+}
+
+.dropdown-content a:hover {
+  background-color: #EE7674;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #987284;
+}
