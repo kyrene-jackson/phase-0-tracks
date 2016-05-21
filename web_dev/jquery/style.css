@@ -18,8 +18,13 @@ height: 800px;
 
 }
 
-.body-content {
+.content-container {
   font-family: 'Give You Glory', cursive;
   color: white;
   text-align: center;
+}
+
+img {
+  width: 50%;
+  position: relative;
 }
