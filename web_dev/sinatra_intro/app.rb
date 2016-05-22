@@ -51,3 +51,29 @@ get '/address' do
    Chicago, IL<br>
    60290<br>"
 end
+
+# a great job route that
+# takes a persons name
+# as a query
+
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Great job, #{name}!"
+  else
+    "Good job!"
+  end
+end
+
+# A route that uses route parameters
+# to add two numbers and respond
+# with the result.
+
+get '/:number_1/plus/:number_2' do
+  number_1 = params[:number_1]
+  number_2 = params[:number_2]
+  x = number_1.to_i
+  y = number_2.to_i
+  z = x + y
+  z.to_s
+end
